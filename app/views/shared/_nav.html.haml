@@ -34,4 +34,8 @@
               %a{:href => "#"} Link
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{:href => "#"} Logga in
+          - if user_signed_in?
+            %a{:href => sign_out_path} Logga ut
+          - else
+            %a{:href => sign_in_path} Logga in
+

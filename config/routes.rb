@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :orgs
 
   get '/dashboard', to: 'home#dashboard', as: :dashboard
+  get '/sign_in', to: 'home#sign_in', as: :sign_in
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
