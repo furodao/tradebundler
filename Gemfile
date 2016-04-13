@@ -9,11 +9,15 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 gem 'normalize-rails'
 gem 'uglifier', '>= 1.3.0'
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 gem 'haml-rails'
+
+gem 'twitter-bootswatch-rails', '~> 3.3.4'
+gem 'twitter-bootswatch-rails-fontawesome', '~> 4.3'
+gem 'twitter-bootswatch-rails-helpers'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

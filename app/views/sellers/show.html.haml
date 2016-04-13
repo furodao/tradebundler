@@ -1,15 +1,29 @@
-%p#notice= notice
+- model_class = Seller
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
 
 %p
-  %b First name:
+  %strong= model_class.human_attribute_name(:first_name) + ':'
+  %br
   = @seller.first_name
 %p
-  %b Last name:
+  %strong= model_class.human_attribute_name(:last_name) + ':'
+  %br
   = @seller.last_name
 %p
-  %b Org:
+  %strong= model_class.human_attribute_name(:phone) + ':'
+  %br
+  = @seller.phone
+%p
+  %strong= model_class.human_attribute_name(:email) + ':'
+  %br
+  = @seller.email
+%p
+  %strong= model_class.human_attribute_name(:org_id) + ':'
+  %br
   = @seller.org_id
 
-= link_to 'Edit', edit_seller_path(@seller)
-\|
-= link_to 'Back', sellers_path
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), sellers_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_seller_path(@seller), :class => 'btn btn-primary'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), seller_path(@seller), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

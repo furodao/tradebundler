@@ -1,7 +1,4 @@
-%h1 Editing org
-
-= render 'form'
-
-= link_to 'Show', @org
-\|
-= link_to 'Back', orgs_path
+- model_class = Org
+.page-header
+  %h1=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human, :default => "Edit #{model_class.model_name.human}")
+= render :partial => "form"
