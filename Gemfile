@@ -11,6 +11,9 @@ gem 'normalize-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 
+gem 'devise', git: 'https://github.com/plataformatec/devise'
+gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_auth'
+
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 gem 'haml-rails'
