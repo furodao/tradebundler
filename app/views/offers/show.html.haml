@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Seller:
+  = @offer.seller_id
+%p
+  %b Spec:
+  = @offer.spec_id
+%p
+  %b Description:
+  = @offer.description
+%p
+  %b Budget:
+  = @offer.budget
+%p
+  %b Delivery date:
+  = @offer.delivery_date
+
+= link_to 'Edit', edit_offer_path(@offer)
+\|
+= link_to 'Back', offers_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @buyer.first_name
+%p
+  %b Last name:
+  = @buyer.last_name
+%p
+  %b Org:
+  = @buyer.org_id
+
+= link_to 'Edit', edit_buyer_path(@buyer)
+\|
+= link_to 'Back', buyers_path

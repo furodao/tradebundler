@@ -1,0 +1,25 @@
+%h1 Listing specs
+
+%table
+  %thead
+    %tr
+      %th Buyer
+      %th Title
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @specs.each do |spec|
+      %tr
+        %td= spec.buyer_id
+        %td= spec.title
+        %td= spec.description
+        %td= link_to 'Show', spec
+        %td= link_to 'Edit', edit_spec_path(spec)
+        %td= link_to 'Destroy', spec, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Spec', new_spec_path

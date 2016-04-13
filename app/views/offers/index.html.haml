@@ -1,0 +1,29 @@
+%h1 Listing offers
+
+%table
+  %thead
+    %tr
+      %th Seller
+      %th Spec
+      %th Description
+      %th Budget
+      %th Delivery date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @offers.each do |offer|
+      %tr
+        %td= offer.seller_id
+        %td= offer.spec_id
+        %td= offer.description
+        %td= offer.budget
+        %td= offer.delivery_date
+        %td= link_to 'Show', offer
+        %td= link_to 'Edit', edit_offer_path(offer)
+        %td= link_to 'Destroy', offer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Offer', new_offer_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Buyer:
+  = @spec.buyer_id
+%p
+  %b Title:
+  = @spec.title
+%p
+  %b Description:
+  = @spec.description
+
+= link_to 'Edit', edit_spec_path(@spec)
+\|
+= link_to 'Back', specs_path
