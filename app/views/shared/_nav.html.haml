@@ -9,29 +9,21 @@
       %a.navbar-brand{:href => "#"} Brand
     #bs-example-navbar-collapse-2.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li.active
-          %a{:href => "#"}
-            Link 1
-            %span.sr-only (current)
-        %li
-          %a{:href => "#"} Link 2
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Meny
-            %span.caret
-          %ul.dropdown-menu{:role => "menu"}
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li
-              %a{:href => "#"} Link
-            %li.divider
-            %li
-              %a{:href => "#"} Link
-            %li.divider
-            %li
-              %a{:href => "#"} Link
+        - if user_signed_in?
+          %li{ class: ('active' if ['sellers', 'buyers'].include?(params[:controller])) }
+            = link_to 'Dashboard', dashboard_path
+          %li{ class: ('active' if params[:controller] == 'specs' ) }
+            =link_to 'Specifikationer', specs_path
+          - if current_user_type == :seller
+            %li{ class: ('active' if params[:controller] == 'offers' ) }
+              = link_to 'Mina offerter', offers_path
+          %li{ class: ('active' if params[:controller] == 'contacts' ) }
+            = link_to 'Kontakter', '#'
+        - else
+          %li{ class: ('active' if params[:controller] == 'prices' ) }
+            = link_to 'Priser', '#'
+          %li{ class: ('active' if params[:controller] == 'info' ) }
+            = link_to 'Om tjänsten', '#'
       %ul.nav.navbar-nav.navbar-right
         %li
           - if user_signed_in?
