@@ -1,0 +1,21 @@
+%h1
+  Logga in
+.row
+  .col-sm-4
+    = form_for Seller.new, url: '/sign_in' do |f|
+      .form-group
+        = f.label :email, 'Email', :class => 'control-label'
+        = f.email_field :email, :class => 'form-control', required: true
+      .form-group
+        = f.label :password, 'Lösenord'
+        - if @validatable
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off", required: true, class: 'form-control'
+      %br
+      .form-actions
+        = f.submit 'Logga in', :class => 'btn btn-success'
+
+
+= link_to 'Jag har inget konto!', register_path

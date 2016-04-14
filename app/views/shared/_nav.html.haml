@@ -35,7 +35,7 @@
       %ul.nav.navbar-nav.navbar-right
         %li
           - if user_signed_in?
-            %a{:href => sign_out_path} Logga ut
+            =link_to "Logga ut", sign_out_path, :method => :delete
           - else
             %a{:href => sign_in_path} Logga in
 

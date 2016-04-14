@@ -8,6 +8,10 @@ class SellersController < ApplicationController
   def show
   end
 
+  def dashboard
+    @seller = Seller.find params[:seller_id]
+  end
+
   def new
     @seller = Seller.new
   end
@@ -19,7 +23,7 @@ class SellersController < ApplicationController
     @seller = Seller.new(seller_params)
 
     if @seller.save
-      redirect_to @seller, notice: 'Seller was successfully created.'
+      redirect_to dashboard_path, notice: 'Seller was successfully created.'
     else
       render :new
     end
@@ -46,6 +50,6 @@ class SellersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def seller_params
-      params.require(:seller).permit(:first_name, :last_name, :org_id)
+      params.require(:seller).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation, :org_id)
     end
 end
