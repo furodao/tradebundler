@@ -1,21 +1,17 @@
-- model_class = Spec
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human
+  %h2
+    Specifikation
 
+%p 
+  %strong
+    Skapad av
+    = @spec.buyer.first_name
+    = @spec.buyer.last_name
 %p
-  %strong= model_class.human_attribute_name(:buyer_id) + ':'
-  %br
-  = @spec.buyer_id
-%p
-  %strong= model_class.human_attribute_name(:title) + ':'
-  %br
   = @spec.title
 %p
-  %strong= model_class.human_attribute_name(:description) + ':'
-  %br
   = @spec.description
 
 .form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), specs_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_spec_path(@spec), :class => 'btn btn-primary'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), spec_path(@spec), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+  = link_to 'Redigera', edit_spec_path(@spec), :class => 'btn btn-primary'
+  = link_to 'Avbryt', spec_path(@spec), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

@@ -1,13 +1,12 @@
-= form_for @spec do |f|
-  .form-group
-    = f.label :buyer_id, :class => 'control-label'
-    = f.number_field :buyer_id, :class => 'form-control'
-  .form-group
-    = f.label :title, :class => 'control-label'
-    = f.text_field :title, :class => 'form-control'
-  .form-group
-    = f.label :description, :class => 'control-label'
-    = f.text_area :description, :class => 'form-control'
-  .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), specs_path, :class => 'btn'
+.row
+  .col-md-4
+    = form_for @spec do |f|
+      .form-group
+        = f.label :title, 'Rubrik', :class => 'control-label'
+        = f.text_field :title, :class => 'form-control'
+      .form-group
+        = f.label :description, 'Beskrivning', :class => 'control-label'
+        = f.text_area :description, rows: 8, :class => 'form-control'
+      .form-actions
+        = f.submit 'Skapa', :class => 'btn btn-primary'
+        = link_to 'Avbryt', specs_path, :class => 'btn'

@@ -1,8 +1,14 @@
 class SpecsController < ApplicationController
+  before_action :authenticate_buyer!, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_buyer_or_seller!, only: [:index]
   before_action :set_spec, only: [:show, :edit, :update, :destroy]
 
   def index
-    @specs = Spec.all
+    if current_user_type == :buyer
+      @specs = current_buyer.org.specs
+    else
+      @specs = Spec.all
+    end
   end
 
   def show
@@ -17,6 +23,7 @@ class SpecsController < ApplicationController
 
   def create
     @spec = Spec.new(spec_params)
+    @spec.buyer = current_buyer
 
     if @spec.save
       redirect_to @spec, notice: 'Spec was successfully created.'
