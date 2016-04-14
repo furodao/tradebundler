@@ -1,12 +1,11 @@
-%nav.navbar.navbar-default.navbar-fixed-top
+%nav.navbar.navbar-default.navbar-fixed-top{ class: ('transparent' if landing) }
   .container-fluid
     .navbar-header
       %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-2", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#"} Brand
+      %a.navbar-brand{:href => root_path} TradeGuide
     #bs-example-navbar-collapse-2.collapse.navbar-collapse
       %ul.nav.navbar-nav
         - if user_signed_in?
@@ -20,14 +19,21 @@
           %li{ class: ('active' if params[:controller] == 'contacts' ) }
             = link_to 'Kontakter', '#'
         - else
-          %li{ class: ('active' if params[:controller] == 'prices' ) }
-            = link_to 'Priser', '#'
           %li{ class: ('active' if params[:controller] == 'info' ) }
-            = link_to 'Om tjänsten', '#'
+            = link_to '#' do
+              Om tjänsten
+          %li{ class: ('active' if params[:controller] == 'org' ) }
+            = link_to '#' do
+              %i.fa.fa-plug
+              Anslut ditt företag
       %ul.nav.navbar-nav.navbar-right
         %li
           - if user_signed_in?
-            =link_to "Logga ut", sign_out_path, :method => :delete
+            = link_to sign_out_path, method: :delete do
+              %i.fa.fa-lock
+              Logga ut
           - else
-            %a{:href => sign_in_path} Logga in
+            = link_to sign_in_path do
+              %i.fa.fa-user
+              Logga in
 
