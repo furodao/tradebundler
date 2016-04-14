@@ -1,2 +1,11 @@
-%h1
-  Landing page
+#landing-wrapper
+  .brand
+    %h1 TradeGuide
+  .row.row-centered
+    .col-xs-6.col-centered
+      .landing-box.transparent
+        = link_to 'Säljare', '#', class: 'btn btn-lg btn-success'
+    .col-xs-6.col-centered
+      .landing-box
+        = link_to 'Inköpare', '#', class: 'btn btn-lg btn-success'
+

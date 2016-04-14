@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  layout 'landing_page'
 
   def index
     if seller_signed_in? || buyer_signed_in?
