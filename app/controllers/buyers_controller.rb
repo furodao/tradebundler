@@ -8,6 +8,10 @@ class BuyersController < ApplicationController
   def show
   end
 
+  def dashboard
+    @buyer = Buyer.find params[:buyer_id]
+  end
+
   def new
     @buyer = Buyer.new
   end
@@ -19,7 +23,7 @@ class BuyersController < ApplicationController
     @buyer = Buyer.new(buyer_params)
 
     if @buyer.save
-      redirect_to @buyer, notice: 'Buyer was successfully created.'
+      redirect_to dashboard_path, notice: 'Buyer was successfully created.'
     else
       render :new
     end
@@ -46,6 +50,6 @@ class BuyersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def buyer_params
-      params.require(:buyer).permit(:first_name, :last_name, :org_id)
+      params.require(:buyer).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation, :org_id)
     end
 end
