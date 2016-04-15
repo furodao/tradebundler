@@ -5,35 +5,44 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => root_path} TradeGuide
+      %a.navbar-brand{:href => root_path} TradeGuide '16
     #bs-example-navbar-collapse-2.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        - if user_signed_in?
+      - if user_signed_in?
+        %ul.nav.navbar-nav
           %li{ class: ('active' if ['sellers', 'buyers'].include?(params[:controller])) }
-            = link_to 'Dashboard', dashboard_path
+            = link_to dashboard_path do
+              %i.fa.fa-dashboard
+              Dashboard
           %li{ class: ('active' if params[:controller] == 'specs' ) }
-            =link_to 'Specifikationer', specs_path
+            = link_to specs_path do
+              %i.fa.fa-file-o
+              Specifikationer
           - if current_user_type == :seller
             %li{ class: ('active' if params[:controller] == 'offers' ) }
-              = link_to 'Mina offerter', offers_path
+              = link_to offers_path do
+                %i.fa.fa-clone
+                Mina offerter
           %li{ class: ('active' if params[:controller] == 'contacts' ) }
-            = link_to 'Kontakter', '#'
-        - else
+            = link_to '#' do
+              %i.fa.fa-phone
+              Kontakter
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = link_to sign_out_path, method: :delete do
+              %i.fa.fa-unlock-alt
+              Logga ut
+      - else
+        %ul.nav.navbar-nav.navbar-right
           %li{ class: ('active' if params[:controller] == 'info' ) }
             = link_to '#' do
+              %i.fa.fa-info
               Om tjänsten
           %li{ class: ('active' if params[:controller] == 'org' ) }
             = link_to '#' do
               %i.fa.fa-plug
               Anslut ditt företag
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          - if user_signed_in?
-            = link_to sign_out_path, method: :delete do
-              %i.fa.fa-lock
-              Logga ut
-          - else
+          %li
             = link_to sign_in_path do
-              %i.fa.fa-user
+              %i.fa.fa-lock
               Logga in
 
