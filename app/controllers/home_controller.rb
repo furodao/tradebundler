@@ -16,14 +16,4 @@ class HomeController < ApplicationController
       index
     end
   end
-
-  def current_user_type
-    if seller_signed_in?
-      return :seller
-    elsif buyer_signed_in?
-      return :buyer
-    else
-      :no_user
-    end
-  end
 end

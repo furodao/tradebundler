@@ -1,10 +1,17 @@
-#landing-wrapper
-  .button-wrapper
-    .row.row-centered
-      .col-xs-6.col-centered
-        .landing-box.transparent
-          = link_to 'Säljare', '#', class: 'btn btn-lg btn-success'
-      .col-xs-6.col-centered
-        .landing-box
-          = link_to 'Inköpare', '#', class: 'btn btn-lg btn-success'
-
+.intro-header
+  .container
+    .row
+      .col-lg-12
+        .intro-message
+          %h1 TradeGuide
+          %h3 Upphandling på egna villkor
+          %hr.intro-divider/
+          %ul.list-inline.intro-social-buttons
+            %li
+              = link_to new_seller_path, class: 'btn btn-lg btn-default' do
+                %i.fa.fa-tty.fa-fw
+                Säljare
+            %li
+              = link_to new_buyer_path, class: 'btn btn-lg btn-default' do
+                %i.fa.fa-shopping-cart.fa-fw
+                Inköpare
