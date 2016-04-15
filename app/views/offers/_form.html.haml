@@ -1,11 +1,5 @@
 = form_for @offer do |f|
   .form-group
-    = f.label :seller_id, :class => 'control-label'
-    = f.number_field :seller_id, :class => 'form-control'
-  .form-group
-    = f.label :spec_id, :class => 'control-label'
-    = f.number_field :spec_id, :class => 'form-control'
-  .form-group
     = f.label :description, :class => 'control-label'
     = f.text_area :description, :class => 'form-control'
   .form-group
@@ -14,6 +8,8 @@
   .form-group
     = f.label :delivery_date, :class => 'control-label'
     = f.date_select :delivery_date, :class => 'form-control'
+  .form-group
+    = f.hidden_field :spec_id, { value: @spec.id }
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), offers_path, :class => 'btn'

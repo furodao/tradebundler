@@ -1,36 +1,33 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
-  # GET /offers
   def index
     @offers = Offer.all
   end
 
-  # GET /offers/1
   def show
   end
 
-  # GET /offers/new
   def new
     @offer = Offer.new
+    @spec = Spec.find(params[:spec_id])
   end
 
-  # GET /offers/1/edit
   def edit
   end
 
-  # POST /offers
   def create
     @offer = Offer.new(offer_params)
+    @offer.spec_id = params[:offer][:spec_id]
+    @offer.seller = current_seller
 
     if @offer.save
-      redirect_to @offer, notice: 'Offer was successfully created.'
+      redirect_to offers_path, notice: 'Offer was successfully created.'
     else
       render :new
     end
   end
 
-  # PATCH/PUT /offers/1
   def update
     if @offer.update(offer_params)
       redirect_to @offer, notice: 'Offer was successfully updated.'
@@ -39,7 +36,6 @@ class OffersController < ApplicationController
     end
   end
 
-  # DELETE /offers/1
   def destroy
     @offer.destroy
     redirect_to offers_url, notice: 'Offer was successfully destroyed.'

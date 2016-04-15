@@ -4,26 +4,17 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:seller_id)
-      %th= model_class.human_attribute_name(:spec_id)
-      %th= model_class.human_attribute_name(:description)
-      %th= model_class.human_attribute_name(:budget)
-      %th= model_class.human_attribute_name(:delivery_date)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th Spec Org
+      %th Spec Rubrik
+      %th Budget
+      %th Säljare
+      %th Status
   %tbody
     - @offers.each do |offer|
       %tr
-        %td= link_to offer.id, offer_path(offer)
-        %td= offer.seller_id
-        %td= offer.spec_id
-        %td= offer.description
+        %td= offer.spec.org.title
+        %td= offer.spec.title
         %td= offer.budget
-        %td= offer.delivery_date
-        %td=l offer.created_at
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_offer_path(offer), :class => 'btn btn-primary btn-xs'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), offer_path(offer), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger btn-xs'
+        %td= offer.seller.full_name
+        %td Väntande
 
-= link_to t('.new', :default => t("helpers.links.new")), new_offer_path, :class => 'btn btn-primary'

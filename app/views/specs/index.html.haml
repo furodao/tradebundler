@@ -11,11 +11,7 @@
         %th
   %tbody
     - @specs.each do |spec|
-      %tr
-        %td= spec.buyer.org.title
-        %td= spec.title
-        %td=l spec.created_at
-        - if current_user_type == :seller
-          %td
-            = link_to 'Skapa offert', '#', :class => 'btn btn-success btn-xs'
-
+      - if current_user_type == :seller
+        = render partial: 'spec_item_seller', locals: { spec: spec, offered_made: current_seller.specs.pluck(:id).include?(spec.id) }
+      - else
+        = render partial: 'spec_item_buyer', locals: { spec: spec }

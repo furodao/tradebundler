@@ -5,6 +5,7 @@ class Seller < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :org
   has_many :offers
+  has_many :specs, through: :offers
 
   def self.authenticate(email, password)
     seller = Seller.find_for_authentication(email: email)
