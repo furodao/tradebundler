@@ -11,4 +11,8 @@ class Buyer < ApplicationRecord
     buyer = Buyer.find_for_authentication(email: email)
     buyer.valid_password?(password) ? buyer : nil
   end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

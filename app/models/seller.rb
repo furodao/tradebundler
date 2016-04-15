@@ -10,4 +10,8 @@ class Seller < ApplicationRecord
     seller = Seller.find_for_authentication(email: email)
     seller.valid_password?(password) ? seller : nil
   end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
