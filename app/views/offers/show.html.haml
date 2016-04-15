@@ -1,14 +1,36 @@
 .row
-  .col-md-4
+  .col-md-6.offer-box
     %p
-      %strong Inköpare: #{ @offer.spec.buyer.full_name }, #{ @offer.spec.org.title }
-      %br
-      %strong Önskat leverans-datum: #{ @offer.spec.try(:delivery_date) }
+      Offert
+    %dl.dl-horizontal
+      %dt
+        Säljare:
+      %dd
+        #{ @offer.seller.full_name }, #{ @offer.seller.org.title }
+      %dt
+        Leverans:
+      %dd
+        = @offer.delivery_date
       %hr
+
     %p
       = @offer.description
     %p
-      Budget: #{ @offer.budget }
+      Budget: #{ @offer.budget.round } Kr
       %br
       Leverans: #{ @offer.delivery_date }
-
+  .col-md-6
+    %dl.dl-horizontal
+      %dt
+        Inköpare:
+      %dd
+        #{ @offer.spec.buyer.full_name }, #{ @offer.spec.org.title }
+      %dt
+        Önskad leverans:
+      %dd
+        = @offer.spec.try(:delivery_date)
+      %hr
+    %p
+      = @offer.spec.description
+    %p
+      Budget: #{ @offer.spec.try(:budget) || '-' } Kr

@@ -1,17 +1,22 @@
-.page-header
-  %h3
-    Specifikationer
-%table.table.table-striped
-  %thead
-    %tr
-      %th Org
-      %th Rubrik
-      %th Skapad
-      -if current_user_type == :seller
-        %th
-  %tbody
-    - @specs.each do |spec|
-      - if current_user_type == :seller
-        = render partial: 'spec_item_seller', locals: { spec: spec, offered_made: current_seller.specs.pluck(:id).include?(spec.id) }
-      - else
-        = render partial: 'spec_item_buyer', locals: { spec: spec }
+.row
+  .col-md-3.left-panel
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-search
+        %input{ type: 'search', name: 'spec_filter', placeholder: 'Sök..', class: 'form-control' }
+
+  .col-md-8
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Org
+          %th Rubrik
+          %th Skapad
+          %th
+      %tbody
+        - @specs.each do |spec|
+          - if current_user_type == :seller
+            = render partial: 'spec_item_seller', locals: { spec: spec, offered_made: current_seller.specs.pluck(:id).include?(spec.id) }
+          - else
+            = render partial: 'spec_item_buyer', locals: { spec: spec }

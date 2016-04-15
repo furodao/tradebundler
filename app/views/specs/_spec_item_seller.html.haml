@@ -1,7 +1,7 @@
 %tr{ class: ('warning' if offered_made) }
   %td= spec.buyer.org.title
   %td= spec.title
-  %td=l spec.created_at
-  %td
+  %td= spec.created_at.strftime("%d/%m %Y")
+  %td.right
     = link_to 'Skapa offert', new_offer_path(spec_id: spec.id), :class => "btn btn-success btn-xs #{'no-click' if offered_made}"
     = link_to 'Se offert', offer_path(Offer.where(spec_id: spec.id).first.id), :class => "btn btn-default btn-xs"

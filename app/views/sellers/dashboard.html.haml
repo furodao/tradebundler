@@ -1,2 +1,18 @@
-%h1
-  = @seller.full_name
+= Date.today.strftime("%d/%m %Y")
+%h4
+  #{@seller.full_name}, #{@seller.org.title}
+%hr
+
+%dl.dl-horizontal
+  %dt
+    Aktiva offerter:
+  %dd
+    #{current_seller.specs.count}
+  %dt
+    Godkända offerter:
+  %dd
+    #{current_seller.specs.count}
+  %dt
+    Kontakter:
+  %dd
+    #{current_seller.try(:contacts).try(:count)}
