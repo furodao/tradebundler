@@ -1,3 +1,7 @@
+%h5.right
+  = link_to new_spec_path, class: 'btn btn-xs btn-default' do
+    %i.fa.fa-pencil
+    Ny specifikation
 .row
   .col-md-3.left-panel
     .form-group
@@ -6,7 +10,7 @@
           %i.fa.fa-search
         %input{ type: 'search', name: 'spec_filter', placeholder: 'Sök..', class: 'form-control' }
 
-  .col-md-8
+  .col-md-8.right-panel
     %table.table.table-hover
       %thead
         %tr
