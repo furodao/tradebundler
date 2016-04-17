@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get :dashboard
   end
   resources :orgs
+  resources :contacts
 
   get '/dashboard', to: 'home#dashboard', as: :dashboard
 

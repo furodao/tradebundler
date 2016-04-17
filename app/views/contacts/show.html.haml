@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Seller:
+  = @contact.seller_id
+%p
+  %b Buyer:
+  = @contact.buyer_id
+
+= link_to 'Edit', edit_contact_path(@contact)
+\|
+= link_to 'Back', contacts_path

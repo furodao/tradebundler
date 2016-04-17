@@ -1,0 +1,24 @@
+.row
+  .col-md-3.left-panel
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-search
+        %input{ type: 'search', name: 'contact_filter', placeholder: 'Sök..', class: 'form-control' }
+
+  .col-md-8.right-panel
+    %table.table.table-hover
+      %thead
+        %tr
+          %th Org
+          %th Namn
+          %th Telefon
+          %th Email
+      %tbody
+        - @contacts.each do |contact|
+          %tr{ class: '' }
+            %td= contact.org.title
+            %td= contact.full_name
+            %td= contact.phone
+            %td= contact.email
+
