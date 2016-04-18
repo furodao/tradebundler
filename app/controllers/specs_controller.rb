@@ -1,5 +1,5 @@
 class SpecsController < ApplicationController
-  before_action :authenticate_buyer!, only: [:create, :edit, :update, :destroy]
+  before_action :authenticate_buyer!, only: [:create, :edit, :update, :destroy, :new]
   before_action :authenticate_buyer_or_seller!, only: [:index]
   before_action :set_spec, only: [:show, :edit, :update, :destroy]
 
@@ -53,6 +53,6 @@ class SpecsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def spec_params
-      params.require(:spec).permit(:buyer_id, :title, :description)
+      params.require(:spec).permit(:buyer_id, :title, :description, :contact_date)
     end
 end
