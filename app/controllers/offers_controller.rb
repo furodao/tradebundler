@@ -14,6 +14,7 @@ class OffersController < ApplicationController
   end
 
   def edit
+    @spec = Spec.find(params[:spec_id])
   end
 
   def create

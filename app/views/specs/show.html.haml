@@ -2,16 +2,19 @@
   %h2
     Specifikation
 
-%p 
-  %strong
-    Skapad av
-    = @spec.buyer.first_name
-    = @spec.buyer.last_name
-%p
-  = @spec.title
-%p
-  = @spec.description
+.row
+  .col.col-md-6
+    .panel.panel-default
+      %p 
+        %strong
+          Inköpare
+          = @spec.buyer.full_name
+      %p
+        = @spec.title
+      %p
+        = @spec.description
 
-.form-actions
-  = link_to 'Redigera', edit_spec_path(@spec), :class => 'btn btn-primary'
-  = link_to 'Avbryt', spec_path(@spec), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+    - if current_user_type == :seller && current_seller.specs.pluck(:id).include?(@spec.id)
+      = link_to 'Min offert', offer_path(Offer.where(spec_id: @spec.id).first.id), :class => "btn btn-default btn-xs"
+    - else
+      = link_to 'Skapa offert', new_offer_path(spec_id: @spec.id), :class => "btn btn-success btn-xs"

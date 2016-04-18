@@ -1,0 +1,15 @@
+.no-click {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: .5;
+}
+
+.right {
+  text-align: right;
+}
+
+.light { opacity: .7; }
+
+.underlined {
+  text-decoration: underline;
+}

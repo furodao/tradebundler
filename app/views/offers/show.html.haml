@@ -1,17 +1,13 @@
 .row
   .col-md-6.offer-box
-    %p
-      Offert
-    %dl.dl-horizontal
-      %dt
-        Säljare:
-      %dd
-        #{ @offer.seller.full_name }, #{ @offer.seller.org.title }
-      %dt
-        Leverans:
-      %dd
-        = @offer.delivery_date
-      %hr
+    %p.light.small.pull-right
+      OFFERT
+    %p.light.small
+      =Date.today
+      %br
+      =@offer.seller.org.title
+      %br
+      =@offer.seller.full_name
 
     %p
       = @offer.description
@@ -19,18 +15,7 @@
       Budget: #{ @offer.budget.round } Kr
       %br
       Leverans: #{ @offer.delivery_date }
-  .col-md-6
-    %dl.dl-horizontal
-      %dt
-        Inköpare:
-      %dd
-        #{ @offer.spec.buyer.full_name }, #{ @offer.spec.org.title }
-      %dt
-        Önskad leverans:
-      %dd
-        = @offer.spec.try(:delivery_date)
-      %hr
-    %p
-      = @offer.spec.description
-    %p
-      Budget: #{ @offer.spec.try(:budget) || '-' } Kr
+    %p.pull-right
+      =link_to 'Redigera', edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default'
+      =link_to 'Avbryt', offer_path, class: 'btn btn-xs btn-danger', method: :delete, :data => { :confirm => 'Är du säker?'  }
+

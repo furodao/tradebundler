@@ -2,7 +2,7 @@
   %td= spec.buyer.org.title
   %td= spec.title
   %td= spec.created_at.strftime("%d/%m %Y")
-  %td.right
+  %td.right.not-clickable
     - if current_seller.specs.pluck(:id).include?(spec.id)
       = link_to 'Min offert', offer_path(Offer.where(spec_id: spec.id).first.id), :class => "btn btn-default btn-xs"
     - else
