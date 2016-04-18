@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :buyers, controllers: { registrations: "buyers" }
   devise_for :sellers, controllers: { registrations: "sellers" }
-  resources :offers
+  resources :offers do
+    post :accept
+    post :reject
+  end
   resources :specs
   resources :sellers do
     get :dashboard

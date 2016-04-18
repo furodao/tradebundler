@@ -40,6 +40,6 @@
                   %td= offer.org.title
                   %td= offer.seller.full_name
                   %td= offer.budget.round
-                  %td Väntande
+                  %td= offer.status_to_s
 
       = render partial: 'shared/table_js'

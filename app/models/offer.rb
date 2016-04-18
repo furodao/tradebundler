@@ -8,4 +8,12 @@ class Offer < ApplicationRecord
   def set_status_pending
     self.status = :pending
   end
+
+  def status_to_s
+    case self.status
+    when 'pending' then 'Väntande'
+    when 'accepted' then 'Accepterad'
+    when 'rejected' then 'Avslagen'
+    end
+  end
 end

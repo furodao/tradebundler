@@ -26,13 +26,13 @@
         %span.label.label-danger
           Nekad
     %p.pull-right
-      - if current_user_type == :seller
+      - if current_user_type == :seller && @offer.status == 'pending'
         =link_to 'Redigera', edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default'
         =link_to 'Avbryt', offer_path, class: 'btn btn-xs btn-danger', method: :delete, :data => { :confirm => 'Är du säker?'  }
-      - else
-        = link_to '#', class: 'btn btn-xs btn-success' do
+      - elsif @offer.status == 'pending'
+        = link_to offer_accept_path(@offer), class: 'btn btn-xs btn-success', method: :post do
           %i.fa.fa-check
           Acceptera
-        = link_to '#', class: 'btn btn-xs btn-default' do
+        = link_to offer_reject_path(@offer), class: 'btn btn-xs btn-default', method: :post do
           %i.fa.fa-close
           Avstå

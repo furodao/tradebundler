@@ -42,6 +42,26 @@ class OffersController < ApplicationController
     redirect_to offers_url, notice: 'Offer was successfully destroyed.'
   end
 
+  def accept
+    @offer = Offer.find(params[:offer_id])
+    if @offer
+      @offer.update_attribute :status, :accepted
+      redirect_to @offer, notice: 'Offerten accepterad.'
+    else
+      redirect_to offers_url, notice: 'Offerten hittades ej!'
+    end
+  end
+
+  def reject
+    @offer = Offer.find(params[:offer_id])
+    if @offer
+      @offer.update_attribute :status, :rejected
+      redirect_to @offer, notice: 'Offerten avlagen.'
+    else
+      redirect_to offers_url, notice: 'Offerten hittades ej!'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_offer
