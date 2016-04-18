@@ -36,7 +36,7 @@
                 %th Status
             %tbody
               - @spec.offers.each do |offer|
-                %tr{ data: { link: "#{offer_path(offer)}" } }
+                %tr{ data: { link: "#{offer_path(offer)}" }, class: row_class_from_status(offer.status) }
                   %td= offer.org.title
                   %td= offer.seller.full_name
                   %td= offer.budget.round

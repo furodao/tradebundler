@@ -17,11 +17,11 @@
           %th Status
       %tbody
         - @offers.each do |offer|
-          %tr{ data: { link: "#{offer_path(offer)}" } }
+          %tr{ data: { link: "#{offer_path(offer)}" }, class: row_class_from_status(offer.status) }
             %td= offer.spec.org.title
             %td= offer.spec.title
             %td= offer.budget
             %td= offer.seller.full_name
-            %td Väntande
+            %td= offer.status_to_s
 
 = render partial: 'shared/table_js'
