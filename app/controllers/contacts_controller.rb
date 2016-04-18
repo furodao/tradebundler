@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
     if current_user_type == :seller
       @contacts = current_seller.contacts.collect(&:buyer)
     else
-      @contacts = current_seller.contacts.collect(&:seller)
+      @contacts = current_buyer.contacts.collect(&:seller)
     end
   end
 

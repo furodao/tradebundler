@@ -1,17 +1,19 @@
-%h5.right
-  = link_to new_spec_path, class: 'btn btn-xs btn-default' do
-    %i.fa.fa-pencil
-    Ny specifikation
 .row
-  .col-md-3.left-panel
+  .col-md-3.left-panel.panel.panel-default
+    - if current_user_type == :buyer
+      %div.control-box
+        = link_to new_spec_path, class: 'btn btn-xs btn-default' do
+          %i.fa.fa-pencil
+          Ny specifikation
+
     .form-group
       .input-group
         .input-group-addon
           %i.fa.fa-search
-        %input{ type: 'search', name: 'spec_filter', placeholder: 'Sök..', class: 'form-control' }
+        %input{ type: 'search', name: 'filter', placeholder: 'Sök..', class: 'form-control' }
 
   .col-md-8.right-panel
-    %table.table.table-hover
+    %table.table.table-hover.table-clickable
       %thead
         %tr
           %th Org
@@ -24,3 +26,5 @@
             = render partial: 'spec_item_seller', locals: { spec: spec, offered_made: current_seller.specs.pluck(:id).include?(spec.id) }
           - else
             = render partial: 'spec_item_buyer', locals: { spec: spec }
+
+= render partial: 'shared/table_js'

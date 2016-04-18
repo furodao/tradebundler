@@ -1,17 +1,27 @@
-%table.table.table-hover
-  %thead
-    %tr
-      %th Spec Org
-      %th Spec Rubrik
-      %th Budget
-      %th Säljare
-      %th Status
-  %tbody
-    - @offers.each do |offer|
-      %tr
-        %td= offer.spec.org.title
-        %td= offer.spec.title
-        %td= offer.budget
-        %td= offer.seller.full_name
-        %td Väntande
+.row
+  .col-md-3.left-panel.panel.panel-default
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-search
+        %input{ type: 'search', name: 'filter', placeholder: 'Sök..', class: 'form-control' }
 
+  .col-md-8.right-panel
+    %table.table.table-hover.table-clickable
+      %thead
+        %tr
+          %th Spec Org
+          %th Spec Rubrik
+          %th Budget
+          %th Säljare
+          %th Status
+      %tbody
+        - @offers.each do |offer|
+          %tr{ data: { link: "#{offer_path(offer)}" } }
+            %td= offer.spec.org.title
+            %td= offer.spec.title
+            %td= offer.budget
+            %td= offer.seller.full_name
+            %td Väntande
+
+= render partial: 'shared/table_js'

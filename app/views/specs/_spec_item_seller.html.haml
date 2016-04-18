@@ -1,9 +1,9 @@
-%tr{ class: ('warning' if offered_made) }
+%tr{ class: ('warning' if offered_made), data: { link: "#{spec_path(spec)}" }  }
   %td= spec.buyer.org.title
   %td= spec.title
   %td= spec.created_at.strftime("%d/%m %Y")
   %td.right
     - if current_seller.specs.pluck(:id).include?(spec.id)
-      = link_to 'Se offert', offer_path(Offer.where(spec_id: spec.id).first.id), :class => "btn btn-default btn-xs"
+      = link_to 'Min offert', offer_path(Offer.where(spec_id: spec.id).first.id), :class => "btn btn-default btn-xs"
     - else
       = link_to 'Skapa offert', new_offer_path(spec_id: spec.id), :class => "btn btn-success btn-xs #{'no-click' if offered_made}"
