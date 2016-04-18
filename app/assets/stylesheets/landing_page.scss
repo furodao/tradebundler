@@ -9,12 +9,14 @@
       text-decoration: underline;
     }
     &.navbar-brand {
-      border: 1px solid #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 4px;
       margin: 5px 0;
       background: rgba(255, 255, 255, 0.18);
+      opacity: .7;
       &:hover {
         text-decoration: none;
+        opacity: 1;
       }
     }
   }
