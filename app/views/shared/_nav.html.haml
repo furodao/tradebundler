@@ -20,7 +20,7 @@
           - if current_user_type == :seller
             %li{ class: ('active' if params[:controller] == 'offers' ) }
               = link_to offers_path do
-                %i.fa.fa-clone
+                %i.fa.fa-files-o
                 Mina offerter
           %li{ class: ('active' if params[:controller] == 'contacts' ) }
             = link_to contacts_path do

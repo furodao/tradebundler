@@ -15,6 +15,16 @@
       Budget: #{ @offer.budget.round } Kr
       %br
       Leverans: #{ @offer.delivery_date }
+    %p.pull-left
+      - if @offer.status == 'pending'
+        %span.label.label-warning
+          Väntar svar
+      - elsif @offer.status == 'accepted'
+        %span.label.label-success
+          Accepterad
+      - else
+        %span.label.label-danger
+          Nekad
     %p.pull-right
       - if current_user_type == :seller
         =link_to 'Redigera', edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default'
