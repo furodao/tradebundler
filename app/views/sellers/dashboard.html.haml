@@ -7,14 +7,11 @@
   .col-md-3
     %ul.list-group
       %li.list-group-item
-        %span.badge= current_seller.specs.count
-        Aktiva offerter
-      %li.list-group-item
-        %span.badge= current_seller.specs.count
-        Godkända offerter
-      %li.list-group-item
-        %span.badge= (current_seller.specs.count - 1)
+        %span.badge= current_seller.offers.select{ |o| o.status == 'pending' }.count
         Väntande offerter
+      %li.list-group-item
+        %span.badge= current_seller.offers.select{ |o| o.status == 'accepted' }.count
+        Godkända offerter
       %li.list-group-item
         %span.badge= current_seller.contacts.count
         Kontakter
