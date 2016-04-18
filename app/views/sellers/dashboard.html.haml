@@ -3,16 +3,18 @@
   #{@seller.full_name}, #{@seller.org.title}
 %hr
 
-%dl.dl-horizontal
-  %dt
-    Aktiva offerter:
-  %dd
-    #{current_seller.specs.count}
-  %dt
-    Godkända offerter:
-  %dd
-    #{current_seller.specs.count}
-  %dt
-    Kontakter:
-  %dd
-    #{current_seller.try(:contacts).try(:count)}
+.row
+  .col-md-3
+    %ul.list-group
+      %li.list-group-item
+        %span.badge= current_seller.specs.count
+        Aktiva offerter
+      %li.list-group-item
+        %span.badge= current_seller.specs.count
+        Godkända offerter
+      %li.list-group-item
+        %span.badge= (current_seller.specs.count - 1)
+        Väntande offerter
+      %li.list-group-item
+        %span.badge= current_seller.contacts.count
+        Kontakter
