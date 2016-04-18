@@ -15,7 +15,7 @@
               Dashboard
           %li{ class: ('active' if params[:controller] == 'specs' ) }
             = link_to specs_path do
-              %i.fa.fa-file-o
+              %i.fa.fa-file-text-o
               Specifikationer
           - if current_user_type == :seller
             %li{ class: ('active' if params[:controller] == 'offers' ) }
