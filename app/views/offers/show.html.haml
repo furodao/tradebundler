@@ -16,6 +16,13 @@
       %br
       Leverans: #{ @offer.delivery_date }
     %p.pull-right
-      =link_to 'Redigera', edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default'
-      =link_to 'Avbryt', offer_path, class: 'btn btn-xs btn-danger', method: :delete, :data => { :confirm => 'Är du säker?'  }
-
+      - if current_user_type == :seller
+        =link_to 'Redigera', edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default'
+        =link_to 'Avbryt', offer_path, class: 'btn btn-xs btn-danger', method: :delete, :data => { :confirm => 'Är du säker?'  }
+      - else
+        = link_to '#', class: 'btn btn-xs btn-success' do
+          %i.fa.fa-check
+          Acceptera
+        = link_to '#', class: 'btn btn-xs btn-default' do
+          %i.fa.fa-close
+          Avstå

@@ -5,16 +5,41 @@
 .row
   .col.col-md-6
     .panel.panel-default
-      %p 
-        %strong
-          Inköpare
-          = @spec.buyer.full_name
-      %p
-        = @spec.title
-      %p
-        = @spec.description
+      .panel-heading
+        Specifikation
+      .panel-body
+        %p
+          = @spec.org.title
+          %br
+          #{@spec.buyer.full_name}, #{@spec.created_at.strftime("%d/%m %Y")}
+        %hr
+        %p
+          = @spec.title
+        %p
+          = @spec.description
 
     - if current_user_type == :seller && current_seller.specs.pluck(:id).include?(@spec.id)
       = link_to 'Min offert', offer_path(Offer.where(spec_id: @spec.id).first.id), :class => "btn btn-default btn-xs"
-    - else
+    - elsif current_user_type == :seller
       = link_to 'Skapa offert', new_offer_path(spec_id: @spec.id), :class => "btn btn-success btn-xs"
+    - else
+      .panel.panel-default
+        .panel-heading
+          Offerter
+        .panel-body
+          %table.table.table-hover.table-clickable
+            %thead
+              %tr
+                %th Org
+                %th Säljare
+                %th Budget
+                %th Status
+            %tbody
+              - @spec.offers.each do |offer|
+                %tr{ data: { link: "#{offer_path(offer)}" } }
+                  %td= offer.org.title
+                  %td= offer.seller.full_name
+                  %td= offer.budget.round
+                  %td Väntande
+
+      = render partial: 'shared/table_js'

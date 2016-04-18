@@ -19,7 +19,9 @@
           %th Org
           %th Rubrik
           %th Skapad
-          %th
+          %th 
+            - if current_user_type == :buyer
+              Offerter
       %tbody
         - @specs.each do |spec|
           - if current_user_type == :seller
