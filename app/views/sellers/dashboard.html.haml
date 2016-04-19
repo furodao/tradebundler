@@ -5,7 +5,7 @@
 
 .row
   .col-md-3
-    %ul.list-group
+    %ul.list-group.dashboard-stats-list
       %li.list-group-item
         %span.badge= current_seller.offers.select{ |o| o.status == 'pending' }.count
         Väntande offerter

@@ -1,3 +1,16 @@
 = Date.today.strftime("%d/%m %Y")
 %h4
   #{@buyer.full_name}, #{@buyer.org.title}
+
+.row
+  .col-md-3
+    %ul.list-group.dashboard-stats-list
+      %li.list-group-item
+        %span.badge= current_buyer.specs.count
+        =link_to 'Specifikationer', specs_path
+      %li.list-group-item
+        %span.badge= current_buyer.offers.select{ |o| o.status == 'pending' }.count
+        =link_to 'Väntande offerter', offers_path
+      %li.list-group-item
+        %span.badge= current_buyer.contacts.count
+        =link_to 'Kontakter', contacts_path

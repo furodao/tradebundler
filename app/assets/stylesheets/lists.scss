@@ -1,0 +1,11 @@
+ul.dashboard-stats-list {
+  li {
+    a {
+      &:hover {
+        background: transparent;
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  }
+}

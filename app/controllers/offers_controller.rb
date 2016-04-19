@@ -2,7 +2,11 @@ class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @offers = Offer.all
+    if current_user_type == :seller
+      @offers = current_seller.org.offers
+    else
+      @offers = current_buyer.offers
+    end
   end
 
   def show

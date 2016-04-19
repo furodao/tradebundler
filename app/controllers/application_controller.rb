@@ -14,4 +14,6 @@ class ApplicationController < ActionController::Base
   def authenticate_buyer_or_seller!
     user_signed_in? ? true : (redirect_to sign_in_path)
   end
+
+  #TODO: current_user
 end

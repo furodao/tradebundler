@@ -7,6 +7,7 @@ class Buyer < ApplicationRecord
   belongs_to :org
   has_many :specs
   has_many :contacts
+  has_many :offers, through: :specs
 
   def self.authenticate(email, password)
     buyer = Buyer.find_for_authentication(email: email)
