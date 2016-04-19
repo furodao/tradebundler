@@ -15,5 +15,7 @@ class ApplicationController < ActionController::Base
     user_signed_in? ? true : (redirect_to sign_in_path)
   end
 
-  #TODO: current_user
+  def current_user
+    current_user_type == :seller ? current_seller : current_buyer
+  end
 end
