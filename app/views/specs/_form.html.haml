@@ -1,5 +1,5 @@
 .row
-  .col-md-4
+  .col-md-6
     = form_for @spec do |f|
       .form-group
         = f.label :title, 'Rubrik', :class => 'control-label'
@@ -7,11 +7,18 @@
       .form-group
         = f.label :description, 'Beskrivning', :class => 'control-label'
         = f.text_area :description, rows: 8, :class => 'form-control'
+      .row
+        .col-md-6
+          .form-group
+            = f.label :budget, 'Budget', :class => 'control-label'
+            .input-group
+              .input-group-addon Kr
+              = f.number_field :budget, :class => 'form-control', value: 0
       .form-group
         = f.label :contact_date, 'Kontakta tidigast', :class => 'control-label'
         = f.date_select :contact_date, :class => 'form-control'
       %br
       %br
       .form-actions
-        = f.submit 'Skapa', :class => 'btn btn-success'
+        = f.submit 'Skapa specifikation', :class => 'btn btn-success'
         = link_to 'Avbryt', specs_path, :class => 'btn'
