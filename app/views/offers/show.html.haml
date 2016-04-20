@@ -9,21 +9,28 @@
       %br
       =@offer.seller.full_name
 
+    %hr
     %p
       = @offer.description
     %p
-      Budget: #{ @offer.budget.round } Kr
+      Totalt: #{ number_with_delimiter(@offer.budget.round, delimiter: ',') } Kr
       %br
       Leverans: #{ @offer.delivery_date }
-    %p
+
+    %div.offer-control-btns
       - if current_user_type == :seller && @offer.status == 'pending'
-        =link_to 'Redigera', edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default'
-        =link_to 'Avbryt', offer_path, class: 'btn btn-xs btn-danger', method: :delete, :data => { :confirm => 'Är du säker?'  }
+        =link_to edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default' do
+          %i.fa.fa-edit
+          Redigera
+        =link_to offer_path, class: 'btn btn-xs btn-danger pull-right', method: :delete, :data => { :confirm => 'Är du säker?'  } do
+          %i.fa.fa-close
+          Avbryt
+
       - elsif @offer.status == 'pending'
         = link_to offer_accept_path(@offer), class: 'btn btn-xs btn-success', method: :post do
           %i.fa.fa-check
           Acceptera
-        = link_to offer_reject_path(@offer), class: 'btn btn-xs btn-default', method: :post do
+        = link_to offer_reject_path(@offer), class: 'btn btn-xs btn-default pull-right', method: :post do
           %i.fa.fa-close
           Avstå
   .col-md-6
