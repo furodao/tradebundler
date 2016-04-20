@@ -11,8 +11,17 @@ class ContactsController < ApplicationController
   end
 
   def show
-    pair = Contact.find(params[:id])
-    @contact = current_user_type == :seller ? pair.buyer : pair.seller
+    # fetch contact record
+    if current_user_type == :buyer
+      pair = current_user.contacts.where(seller_id: params[:id]).first
+    else
+      pair = current_user.contacts.where(buyer_id: params[:id]).first
+    end
+
+    # fetch corresponding buyer/seller
+    if pair
+      @contact = current_user_type == :seller ? pair.buyer : pair.seller
+    end
   end
 
   def new

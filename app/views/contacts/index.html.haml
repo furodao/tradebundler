@@ -7,7 +7,7 @@
         %input{ type: 'search', name: 'filter', placeholder: 'Sök..', class: 'form-control' }
 
   .col-md-8.right-panel
-    %table.table.table-hover
+    %table.table.table-hover.table-clickable
       %thead
         %tr
           %th Org
@@ -16,9 +16,10 @@
           %th Email
       %tbody
         - @contacts.each do |contact|
-          %tr{ class: '' }
+          %tr{ data: { link: "#{contact_path(contact.id)}" } }
             %td= contact.org.title
             %td= contact.full_name
             %td= contact.phone
             %td= contact.email
 
+= render partial: 'shared/table_js'
