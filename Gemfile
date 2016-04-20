@@ -18,8 +18,6 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 gem 'haml-rails'
 
-gem 'twitter-bootswatch-rails', '~> 3.3.4'
-gem 'twitter-bootswatch-rails-helpers'
 gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
