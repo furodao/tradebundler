@@ -48,7 +48,9 @@ class OffersController < ApplicationController
 
   def accept
     @offer = Offer.find(params[:offer_id])
+
     if @offer
+      Contact.create(seller_id: @offer.seller_id, buyer_id: @offer.spec.buyer_id)
       @offer.update_attribute :status, :accepted
       redirect_to @offer, notice: 'Offerten accepterad.'
     else
