@@ -1,6 +1,11 @@
-%p
-  %b Seller:
-  = @contact.seller_id
-%p
-  %b Buyer:
-  = @contact.buyer_id
+.row
+  .col-md-3
+    .thumbnail.profile
+      = image_tag 'no-profile.png'
+      .caption.center
+        %h3= @contact.full_name
+        %h5= @contact.org.title
+        %p
+          =@contact.phone
+          %br
+          =@contact.email

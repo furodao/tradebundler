@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :authenticate_buyer_or_seller!
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:edit, :update, :destroy]
 
   def index
     if current_user_type == :seller
@@ -11,6 +11,8 @@ class ContactsController < ApplicationController
   end
 
   def show
+    pair = Contact.find(params[:id])
+    @contact = current_user_type == :seller ? pair.buyer : pair.seller
   end
 
   def new
