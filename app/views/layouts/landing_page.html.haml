@@ -5,6 +5,7 @@
     = csrf_meta_tags
     = action_cable_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    %link{:href => "https://fonts.googleapis.com/css?family=Martel:400,600", :rel => "stylesheet", :type => "text/css"}/
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
   %body#landing
     = render partial: 'shared/nav', locals: { landing: true }

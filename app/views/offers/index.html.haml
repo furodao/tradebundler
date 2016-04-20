@@ -12,7 +12,7 @@
         %tr
           %th Spec Org
           %th Spec Rubrik
-          %th Budget
+          %th Budget Kr
           %th Säljare
           %th Status
       %tbody
@@ -20,7 +20,7 @@
           %tr{ data: { link: "#{offer_path(offer)}" }, class: row_class_from_status(offer.status) }
             %td= offer.spec.org.title
             %td= offer.spec.title
-            %td= offer.budget
+            %td= number_with_delimiter(offer.budget.round, delimiter: ',')
             %td= offer.seller.full_name
             %td= offer.status_to_s
 

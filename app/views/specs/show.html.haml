@@ -8,11 +8,12 @@
       .panel-heading
         Specifikation
       .panel-body
-        %p
+        %p.small.light
+          = @spec.created_at.strftime("%d/%m %Y")
+          %br
           = @spec.org.title
           %br
-          #{@spec.buyer.full_name}, #{@spec.created_at.strftime("%d/%m %Y")}
-        %hr
+          = @spec.buyer.full_name
         %p
           = @spec.title
         %p

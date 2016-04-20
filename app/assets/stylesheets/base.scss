@@ -7,6 +7,31 @@ body {
     background-size: cover;
   }
 }
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+p,
+a,
+td,
+li,
+dt,
+dd
+{
+  font-family: 'Martel', serif !important;
+  //font-weight: 600;
+}
+
 #root {
   margin-top: 100px;
 }
