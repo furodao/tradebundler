@@ -1,5 +1,6 @@
 class BuyersController < ApplicationController
   before_action :set_buyer, only: [:show, :edit, :update, :destroy]
+  layout :set_layout
 
   def index
     @buyers = Buyer.all
@@ -51,5 +52,12 @@ class BuyersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def buyer_params
       params.require(:buyer).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation, :org_id)
+    end
+
+    def set_layout
+      case action_name
+      when 'new' then 'landing_page'
+      else 'application'
+      end
     end
 end

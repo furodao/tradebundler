@@ -1,5 +1,6 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
+  layout :set_layout
 
   def index
     @sellers = Seller.all
@@ -51,5 +52,12 @@ class SellersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def seller_params
       params.require(:seller).permit(:first_name, :last_name, :email, :phone, :password, :password_confirmation, :org_id)
+    end
+
+    def set_layout
+      case action_name
+      when 'new' then 'landing_page'
+      else 'application'
+      end
     end
 end

@@ -1,0 +1,13 @@
+.register-wrapper {
+  margin-top: 100px;
+  > h4 {
+    color: #fff;
+    text-align: center;
+  }
+  > .row {
+    .panel {
+      opacity: .9;
+      padding: 7%;
+    }
+  }
+}

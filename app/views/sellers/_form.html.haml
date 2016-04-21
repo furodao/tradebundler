@@ -1,36 +1,37 @@
 .row
-  .col-sm-4
-    = form_for @seller do |f|
-      .row
-        .col-sm-6
-          .form-group
-            = f.label :first_name, 'Förnamn', :class => 'control-label'
-            = f.text_field :first_name, :class => 'form-control', required: true
-        .col-sm-6
-          .form-group
-            = f.label :last_name, 'Efternamn', :class => 'control-label'
-            = f.text_field :last_name, :class => 'form-control', required: true
-      .form-group
-        = f.label :phone, 'Telefonnummer', :class => 'control-label'
-        = f.number_field :phone, :class => 'form-control', required: true
-      .form-group
-        = f.label :email, 'Email', :class => 'control-label'
-        = f.email_field :email, :class => 'form-control', required: true
-      .form-group
-        = f.label :org_id, 'Organisation', :class => 'control-label'
-        = f.collection_select :org_id, Org.all, :id, :title, { prompt: 'Välj organisation' }, class: 'form-control', required: true
-      .form-group
-        = f.label :password, 'Lösenord'
-        - if @validatable
-          %em
-            (#{@minimum_password_length} characters minimum)
-        %br/
-        = f.password_field :password, autocomplete: "off", required: true, class: 'form-control'
-      .form-group
-        = f.label :password_confirmation, 'Upprepa lösenord'
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off", required: true, class: 'form-control'
-      %br
-      .form-actions
-        = f.submit 'Skapa konto', :class => 'btn btn-success'
-        = link_to 'Avbryt', sellers_path, :class => 'btn'
+  .col-md-4.col-md-offset-4
+    .panel.panel-default
+      = form_for @seller do |f|
+        .row
+          .col-sm-6
+            .form-group
+              = f.label :first_name, 'Förnamn', :class => 'control-label'
+              = f.text_field :first_name, :class => 'form-control', required: true
+          .col-sm-6
+            .form-group
+              = f.label :last_name, 'Efternamn', :class => 'control-label'
+              = f.text_field :last_name, :class => 'form-control', required: true
+        .form-group
+          = f.label :phone, 'Telefonnummer', :class => 'control-label'
+          = f.number_field :phone, :class => 'form-control', required: true
+        .form-group
+          = f.label :email, 'Email', :class => 'control-label'
+          = f.email_field :email, :class => 'form-control', required: true
+        .form-group
+          = f.label :org_id, 'Organisation', :class => 'control-label'
+          = f.collection_select :org_id, Org.all, :id, :title, { prompt: 'Välj organisation' }, class: 'form-control', required: true
+        .form-group
+          = f.label :password, 'Lösenord'
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          %br/
+          = f.password_field :password, autocomplete: "off", required: true, class: 'form-control'
+        .form-group
+          = f.label :password_confirmation, 'Upprepa lösenord'
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off", required: true, class: 'form-control'
+        %br
+        .form-actions
+          = f.submit 'Skapa konto', :class => 'btn btn-success'
+          = link_to 'Avbryt', sellers_path, :class => 'btn'
