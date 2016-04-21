@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+['Mat & dryck', 'Kontorsmaterial', 'Transport', 'IT'].each do |cat|
+  SpecCategory.create(title: cat)
+end
