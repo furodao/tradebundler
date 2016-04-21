@@ -20,7 +20,7 @@
     %p
       Totalt: #{ number_with_delimiter(@offer.budget.round, delimiter: ',') } Kr
       %br
-      Leverans: #{ @offer.delivery_date }
+      Leverans: #{ @offer.delivery_date.strftime("%d/%m %Y") }
 
     %div.offer-control-btns
       - if current_user_type == :seller && @offer.status == 'pending'

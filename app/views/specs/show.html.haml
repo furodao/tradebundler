@@ -18,6 +18,8 @@
           = @spec.title
         %p
           = @spec.description
+        %p
+          Budget: #{ number_with_delimiter(@spec.budget.round, delimiter: ',') } Kr
 
     - if current_user_type == :seller && current_seller.specs.pluck(:id).include?(@spec.id)
       = link_to 'Min offert', offer_path(Offer.where(spec_id: @spec.id).first.id), :class => "btn btn-default btn-xs"
