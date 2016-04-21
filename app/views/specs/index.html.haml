@@ -25,7 +25,7 @@
       %tbody
         - @specs.each do |spec|
           - if current_user_type == :seller
-            = render partial: 'spec_item_seller', locals: { spec: spec, offered_made: current_seller.specs.pluck(:id).include?(spec.id) }
+            = render partial: 'spec_item_seller', locals: { spec: spec, offer: (current_seller.offers.where(spec_id: spec.id).first || nil) }
           - else
             = render partial: 'spec_item_buyer', locals: { spec: spec }
 
