@@ -39,6 +39,6 @@
           %i.fa.fa-close
           Avstå
       - elsif @offer.status == 'accepted'
-        = link_to contact_path(Contact.where(seller_id: @offer.seller.id, buyer_id: @offer.spec.buyer_id).first.id), class: 'btn btn-xs btn-default' do
+        = link_to contact_path(current_user_type == :seller ? @offer.spec.buyer_id : @offer.seller_id), class: 'btn btn-xs btn-default' do
           %i.fa.fa-comments
           Kontakta

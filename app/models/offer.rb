@@ -16,4 +16,16 @@ class Offer < ApplicationRecord
     when 'rejected' then 'Avslagen'
     end
   end
+
+  def accepted?
+    status == 'accepted'
+  end
+
+  def pending?
+    status == 'pending'
+  end
+
+  def rejected?
+    status == 'rejected'
+  end
 end
