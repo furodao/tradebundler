@@ -1,6 +1,11 @@
 .row
   .col-md-6
     = form_for @spec do |f|
+      .row
+        .col-md-6
+          .form-group
+            = f.label :spec_category_id, 'Kategori', :class => 'control-label'
+            = f.collection_select :spec_category_id, SpecCategory.all, :id, :title, { prompt: 'Välj Kategori' }, class: 'form-control', required: true
       .form-group
         = f.label :title, 'Rubrik', :class => 'control-label'
         = f.text_field :title, :class => 'form-control'
@@ -14,9 +19,9 @@
             .input-group
               .input-group-addon Kr
               = f.number_field :budget, :class => 'form-control', value: 0
-      .form-group
-        = f.label :contact_date, 'Kontakta tidigast', :class => 'control-label'
-        = f.date_select :contact_date, :class => 'form-control'
+        .form-group
+          = f.label :contact_date, 'Kontakta tidigast', :class => 'control-label'
+          = f.date_select :contact_date, :class => 'form-control'
       %br
       %br
       .form-actions

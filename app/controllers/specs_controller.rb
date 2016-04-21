@@ -53,6 +53,6 @@ class SpecsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def spec_params
-      params.require(:spec).permit(:buyer_id, :title, :description, :contact_date, :budget)
+      params.require(:spec).permit(:buyer_id, :title, :description, :contact_date, :budget, :spec_category_id)
     end
 end
