@@ -1,4 +1,4 @@
-%tr{ class: '', data: { link: "#{spec_path(spec)}" } }
+%tr{ class: row_class_from_status(spec.status), data: { link: "#{spec_path(spec)}" } }
   %td= spec.buyer.org.title
   %td= spec.title
   %td= spec.created_at.strftime("%d/%m %Y")

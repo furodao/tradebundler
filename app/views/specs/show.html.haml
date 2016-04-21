@@ -1,6 +1,10 @@
 .page-header
   %h2
     Specifikation
+    - if @spec.accepted?
+      %span.small.text-success
+        | Förhandlad
+        %i.fa.fa-check
 
 .row
   .col.col-md-6
