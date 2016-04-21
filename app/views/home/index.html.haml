@@ -6,12 +6,4 @@
           %h1 TradeGuide '16
           %h3 Upphandling på egna villkor
           %hr.intro-divider/
-          %ul.list-inline.intro-social-buttons
-            %li
-              = link_to new_seller_path, class: 'btn btn-lg btn-default' do
-                %i.fa.fa-tty.fa-fw
-                Säljare
-            %li
-              = link_to new_buyer_path, class: 'btn btn-lg btn-default' do
-                %i.fa.fa-shopping-cart.fa-fw
-                Inköpare
+          = render partial: 'shared/register_btns'
