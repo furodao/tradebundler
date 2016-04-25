@@ -28,12 +28,8 @@
       %br
       - @offer.docs.each do |doc|
         %i.fa.fa-file-text-o
-        = doc.path.split('/')[1]
+        = link_to doc.file.filename.force_encoding("UTF-8"), doc.url
         %br
-    %p
-      =link_to '#', class: 'btn btn-xs btn-default' do
-        %i.fa.fa-download
-        Ladda ned bilagor
 
     %div.offer-control-btns
       - if current_user_type == :seller && @offer.status == 'pending'
