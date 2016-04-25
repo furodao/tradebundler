@@ -17,10 +17,23 @@
     %hr
     %p
       = @offer.description
+
     %p
       Totalt: #{ number_with_delimiter(@offer.budget.round, delimiter: ',') } Kr
       %br
       Leverans: #{ @offer.delivery_date.strftime("%d/%m %Y") }
+    %hr
+    %p
+      %strong Bilagor:
+      %br
+      - @offer.docs.each do |doc|
+        %i.fa.fa-file-text-o
+        = doc.path.split('/')[1]
+        %br
+    %p
+      =link_to '#', class: 'btn btn-xs btn-default' do
+        %i.fa.fa-download
+        Ladda ned bilagor
 
     %div.offer-control-btns
       - if current_user_type == :seller && @offer.status == 'pending'

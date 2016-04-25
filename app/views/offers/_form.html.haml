@@ -1,9 +1,9 @@
 .row
   .col-md-6
-    = form_for @offer do |f|
+    = form_for @offer, multipart: true do |f|
       .form-group
         = f.label :description, 'Beskrivning', :class => 'control-label'
-        = f.text_area :description, rows: 10, :class => 'form-control'
+        = f.text_area :description, rows: 5, :class => 'form-control'
       .row
         .col-md-6
           .form-group
@@ -14,6 +14,12 @@
       .form-group
         = f.label :delivery_date, 'Leverans', :class => 'control-label'
         = f.date_select :delivery_date, :class => 'form-control'
+      .form-group
+        %span.btn.btn-default.btn-file
+          %i.fa.fa-upload
+          Dokument
+          = f.file_field :docs, multiple: true
+          = f.hidden_field :docs_cache
       .form-group
         = f.hidden_field :spec_id, { value: @spec.id }
       %br

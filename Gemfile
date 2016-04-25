@@ -17,8 +17,13 @@ gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_a
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.x'
 gem 'haml-rails'
-
 gem "font-awesome-rails"
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'mini_magick'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+gem 'carrierwave-aws'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -26,8 +31,7 @@ gem "font-awesome-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-end
+
 
 group :development do
   gem 'pry'
