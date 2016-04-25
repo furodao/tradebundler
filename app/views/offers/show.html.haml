@@ -14,22 +14,23 @@
       %br
       =@offer.seller.full_name
 
-    %hr
-    %p
-      = @offer.description
+    %fieldset
+      %legend Överblick
+      %p
+        = @offer.description
 
-    %p
-      Totalt: #{ number_with_delimiter(@offer.budget.round, delimiter: ',') } Kr
-      %br
-      Leverans: #{ @offer.delivery_date.strftime("%d/%m %Y") }
-    %hr
-    %p
-      %strong Bilagor:
-      %br
-      - @offer.docs.each do |doc|
-        %i.fa.fa-file-text-o
-        = link_to doc.file.filename.force_encoding("UTF-8"), doc.url
+      %p
+        Totalt: #{ number_with_delimiter(@offer.budget.round, delimiter: ',') } Kr
         %br
+        Leverans: #{ @offer.delivery_date.strftime("%d/%m %Y") }
+
+    %fieldset
+      %legend Bilagor
+      %p
+        - @offer.docs.each do |doc|
+          = link_to doc.url, class: 'docs' do
+            %i.fa.fa-file-text-o
+            = doc.file.filename.force_encoding("UTF-8")
 
     %div.offer-control-btns
       - if current_user_type == :seller && @offer.status == 'pending'

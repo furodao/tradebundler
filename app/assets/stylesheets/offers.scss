@@ -7,4 +7,30 @@
   .offer-control-btns {
     margin: 60px 33px;
   }
+
+  h5 {
+    margin: 0 33px 0;
+  }
+
+  fieldset {
+    margin-bottom: 30px;
+  }
+
+  legend {
+    border: 0;
+    width: inherit;
+    padding: 0 10px;
+  }
+
+  a.docs {
+    display: block;
+    margin-bottom: 10px;
+    opacity: .8;
+  }
+  a.docs:hover {
+    color: #000;
+    text-decoration: none;
+    background: transparent;
+    opacity: 1;
+  }
 }
