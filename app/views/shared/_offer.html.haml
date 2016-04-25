@@ -1,0 +1,48 @@
+.col-md-6.offer-box
+  %p.light.small.pull-right
+    OFFERT
+  %p.light.small
+    = Date.today
+    %br
+    =@offer.seller.org.title
+    %br
+    =@offer.seller.full_name
+
+  %fieldset
+    %legend Överblick
+    %p
+      = @offer.description
+
+    %p
+      Totalt: #{ number_with_delimiter(@offer.budget.round, delimiter: ',') } Kr
+      %br
+      Leverans: #{ @offer.delivery_date.strftime("%d/%m %Y") }
+
+  %fieldset
+    %legend Bilagor
+    %p
+      - @offer.docs.each do |doc|
+        = link_to doc.url, class: 'docs' do
+          %i.fa.fa-file-text-o
+          = doc.file.filename.force_encoding("UTF-8")
+
+  %div.offer-control-btns
+    - if current_user_type == :seller && @offer.status == 'pending'
+      =link_to edit_offer_path(@offer, spec_id: @offer.spec.id), class: 'btn btn-xs btn-default' do
+        %i.fa.fa-edit
+        Redigera
+      =link_to offer_path, class: 'btn btn-xs btn-danger pull-right', method: :delete, :data => { :confirm => 'Är du säker?'  } do
+        %i.fa.fa-close
+        Avbryt
+
+    - elsif @offer.status == 'pending'
+      = link_to offer_accept_path(@offer), class: 'btn btn-xs btn-success', method: :post do
+        %i.fa.fa-check
+        Acceptera
+      = link_to offer_reject_path(@offer), class: 'btn btn-xs btn-default pull-right', method: :post do
+        %i.fa.fa-close
+        Avstå
+    - elsif @offer.status == 'accepted'
+      = link_to contact_path(current_user_type == :seller ? @offer.spec.buyer_id : @offer.seller_id), class: 'btn btn-xs btn-default' do
+        %i.fa.fa-comments
+        Kontakta

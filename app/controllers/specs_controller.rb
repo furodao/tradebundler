@@ -12,6 +12,7 @@ class SpecsController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:selected_offer]) if params[:selected_offer]
   end
 
   def new
