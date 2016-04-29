@@ -27,6 +27,7 @@ class OffersController < ApplicationController
     @offer.seller = current_seller
 
     if @offer.save
+      BuyerMailer.new_offer(@offer).deliver_later
       redirect_to offers_path, notice: 'Offer was successfully created.'
     else
       render :new

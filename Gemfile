@@ -25,6 +25,10 @@ gem 'mini_magick'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'carrierwave-aws'
 
+gem 'redis', '~>3.2'
+gem 'redis-namespace'
+gem 'sidekiq'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
