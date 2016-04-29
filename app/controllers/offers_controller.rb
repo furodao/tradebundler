@@ -53,6 +53,7 @@ class OffersController < ApplicationController
     if @offer
       Contact.create(seller_id: @offer.seller_id, buyer_id: @offer.spec.buyer_id)
       @offer.update_attribute :status, :accepted
+      SellerMailer.offer_accepted(@offer).deliver_later
       redirect_to @offer, notice: 'Offerten accepterad.'
     else
       redirect_to offers_url, notice: 'Offerten hittades ej!'
