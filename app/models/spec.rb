@@ -11,4 +11,8 @@ class Spec < ApplicationRecord
   def accepted?
     self.offers.any? { |offer| offer.status == 'accepted' }
   end
+
+  def pending?
+    self.offers.none? { |offer| offer.status == 'accepted' }
+  end
 end

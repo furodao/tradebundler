@@ -13,20 +13,9 @@
         %input{ type: 'search', name: 'filter', placeholder: 'Sök..', class: 'form-control' }
 
   .col-md-8.right-panel
-    %table.table.table-hover.table-clickable
-      %thead
-        %tr
-          %th Org
-          %th Rubrik
-          %th Skapad
-          %th 
-            - if current_user_type == :buyer
-              Offerter
-      %tbody
-        - @specs.each do |spec|
-          - if current_user_type == :seller
-            = render partial: 'spec_item_seller', locals: { spec: spec, offer: (current_seller.offers.where(spec_id: spec.id).first || nil) }
-          - else
-            = render partial: 'spec_item_buyer', locals: { spec: spec }
+    - if current_user_type == :seller
+      = render partial: 'spec_table_seller', locals: { specs: @specs }
+    - else
+      = render partial: 'spec_table_buyer', locals: { specs: @specs }
 
 = render partial: 'shared/table_js'

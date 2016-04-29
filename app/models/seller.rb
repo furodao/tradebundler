@@ -17,4 +17,8 @@ class Seller < ApplicationRecord
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def offer_for(spec)
+    self.offers.find_by(spec_id: spec.id)
+  end
 end

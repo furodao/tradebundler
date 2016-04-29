@@ -5,6 +5,9 @@
       %span.small.text-success
         | Förhandlad
         %i.fa.fa-check
+    - elsif @spec.pending?
+      %span.small.text-warning
+        | Ej förhandlad
 
 .row
   .col.col-md-6

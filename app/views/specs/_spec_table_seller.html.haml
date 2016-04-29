@@ -1,0 +1,17 @@
+%table.table.table-hover.table-clickable
+  %thead
+    %tr
+      %th Org
+      %th Rubrik
+      %th Skapad
+  %tbody
+    - specs.each do |spec|
+      %tr{ class: row_class_from_status(current_seller.offer_for(spec).try(:status)), data: { link: "#{spec_path(spec)}" }  }
+        %td= spec.buyer.org.title
+        %td= spec.title
+        %td= spec.created_at.strftime("%d/%m %Y")
+        %td.right.not-clickable
+          - if current_seller.offer_for(spec)
+            = link_to 'Min offert', offer_path(current_seller.offer_for(spec).id), :class => "btn btn-default btn-xs"
+          - else
+            = link_to 'Skapa offert', new_offer_path(spec_id: spec.id), :class => "btn btn-success btn-xs"
