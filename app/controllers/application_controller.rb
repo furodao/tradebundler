@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
   def current_user
     current_user_type == :seller ? current_seller : current_buyer
   end
+
+  def unauthorized
+    redirect_to sign_in_path
+  end
+
 end

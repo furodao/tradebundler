@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :buyers do
     get :dashboard
   end
-  resources :orgs
+  resources :orgs, only: [:new, :update, :create, :destroy, :show]
   resources :contacts
 
   get '/dashboard', to: 'home#dashboard', as: :dashboard

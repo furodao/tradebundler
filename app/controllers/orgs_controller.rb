@@ -1,11 +1,8 @@
 class OrgsController < ApplicationController
   before_action :set_org, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @orgs = Org.all
-  end
-
   def show
+    unauthorized if @org.id != current_user.org_id
   end
 
   def new
