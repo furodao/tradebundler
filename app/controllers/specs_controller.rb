@@ -28,7 +28,7 @@ class SpecsController < ApplicationController
 
     custom_checks = []
     params[:spec][:custom_checks].each do |attr|
-      custom_checks << { title: attr }
+      custom_checks << { id: SecureRandom.hex(4), title: attr }
     end
     @spec.custom_checks = custom_checks
 

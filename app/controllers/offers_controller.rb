@@ -22,9 +22,10 @@ class OffersController < ApplicationController
   end
 
   def create
-    @offer = Offer.new(offer_params)
+    @offer = Offer.new(offer_params.except(:custom_checks_ids))
     @offer.spec_id = params[:offer][:spec_id]
     @offer.seller = current_seller
+    @offer.custom_checks_ids = params[:offer][:custom_checks_ids]
 
     if @offer.save
       BuyerMailer.new_offer(@offer).deliver_later
@@ -78,6 +79,6 @@ class OffersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def offer_params
-      params.require(:offer).permit(:seller_id, :spec_id, :description, :budget, :delivery_date, {docs: []})
+      params.require(:offer).permit(:seller_id, :spec_id, :description, :budget, :delivery_date, {custom_checks_ids: [], docs: []})
     end
 end

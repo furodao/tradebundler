@@ -18,6 +18,15 @@
       %legend Överblick
       %p
         = @offer.description
+      %p
+        %ul.list-unstyled
+          - @offer.spec.custom_checks.each do |attr|
+            %li
+              - if @offer.custom_checks_ids.include?(attr['id'])
+                = attr['title']
+                %i.fa.fa-check.text-success
+              - else
+                %strike.light= attr['title']
 
       %p
         Totalt: #{ number_with_delimiter(@offer.budget.round, delimiter: ',') } Kr
