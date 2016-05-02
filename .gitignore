@@ -7,7 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+./dump.rdb
 /dump.rdb
+dump.rdb
 
 # Ignore all logfiles and tempfiles.
 /log/*
