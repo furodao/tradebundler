@@ -5,6 +5,13 @@
         = f.label :description, 'Beskrivning', :class => 'control-label'
         = f.text_area :description, rows: 5, :class => 'form-control'
       .row
+        %div#custom_field_wrapper.form-group
+          - @spec.custom_checks.each do |attr|
+            %label
+              %input{ type: "checkbox", name: 'offer[custom_checks_ids][]', value: attr['id'] }
+              =attr['title']
+                
+      .row
         .col-md-6
           .form-group
             = f.label :budget, 'Pris totalt', :class => 'control-label'

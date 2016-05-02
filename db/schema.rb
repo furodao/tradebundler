@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425080619) do
+ActiveRecord::Schema.define(version: 20160502121407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,10 +51,11 @@ ActiveRecord::Schema.define(version: 20160425080619) do
     t.text     "description"
     t.decimal  "budget"
     t.date     "delivery_date"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "status"
     t.json     "docs"
+    t.string   "custom_checks_ids", default: [],              array: true
   end
 
   create_table "orgs", force: :cascade do |t|
@@ -94,11 +95,14 @@ ActiveRecord::Schema.define(version: 20160425080619) do
     t.integer  "buyer_id"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.date     "contact_date"
     t.decimal  "budget"
     t.integer  "spec_category_id"
+    t.jsonb    "custom_checks",    default: [], null: false
   end
+
+  add_index "specs", ["custom_checks"], name: "index_specs_on_custom_checks", using: :gin
 
 end
