@@ -13,6 +13,12 @@
         = f.label :description, 'Beskrivning', :class => 'control-label'
         = f.text_area :description, rows: 8, :class => 'form-control'
       .row
+        %div#custom_field_wrapper.form-group
+          = f.fields_for :custom_checks do |builder|
+            = render 'custom_checks', f: builder
+        = link_to 'Lägg till krav', '#', id: 'add_custom_check'
+      %br
+      .row
         .col-md-6
           .form-group
             = f.label :budget, 'Budget', :class => 'control-label'
@@ -27,3 +33,18 @@
       .form-actions
         = f.submit 'Skapa specifikation', :class => 'btn btn-success'
         = link_to 'Avbryt', specs_path, :class => 'btn'
+
+
+:javascript
+  $(document).ready(function(){
+    $('#add_custom_check').on('click', function(e) {
+      e.preventDefault();
+      var check_field = '<div class="custom_field"><input type="text" name="spec[custom_checks][]"> <a class="btn btn-xs btn-danger remove_field" href="#">Ta bort</a></div>';
+      $('#custom_field_wrapper').append(check_field);
+    });
+
+    $('#custom_field_wrapper').on('click', '.remove_field', function(e){
+      e.preventDefault();
+      $(this).parent('div').remove();
+    });
+  })

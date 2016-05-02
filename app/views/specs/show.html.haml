@@ -25,6 +25,9 @@
           = @spec.title
         %p
           = @spec.description
+        %ul
+          - @spec.custom_checks.each do |attr|
+            %li= attr['title']
         %p
           Budget: #{ number_with_delimiter(@spec.budget.round, delimiter: ',') } Kr
 

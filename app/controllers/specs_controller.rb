@@ -23,8 +23,14 @@ class SpecsController < ApplicationController
   end
 
   def create
-    @spec = Spec.new(spec_params)
+    @spec = Spec.new(spec_params.except(:custom_checks))
     @spec.buyer = current_buyer
+
+    custom_checks = []
+    params[:spec][:custom_checks].each do |attr|
+      custom_checks << { title: attr }
+    end
+    @spec.custom_checks = custom_checks
 
     if @spec.save
       redirect_to @spec, notice: 'Spec was successfully created.'
@@ -54,6 +60,6 @@ class SpecsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def spec_params
-      params.require(:spec).permit(:buyer_id, :title, :description, :contact_date, :budget, :spec_category_id)
+      params.require(:spec).permit(:buyer_id, :title, :description, :contact_date, :budget, :spec_category_id, custom_checks: [])
     end
 end
