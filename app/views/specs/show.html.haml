@@ -44,14 +44,12 @@
             %thead
               %tr
                 %th Org
-                %th Säljare
                 %th Budget
                 %th Status
             %tbody
               - @spec.offers.each do |offer|
                 %tr{ data: { link: "#{spec_path(@spec, selected_offer: offer.id)}" }, class: row_class_from_status(offer.status) }
                   %td= offer.org.title
-                  %td= offer.seller.full_name
                   %td= offer.budget.round
                   %td= offer.status_to_s
 

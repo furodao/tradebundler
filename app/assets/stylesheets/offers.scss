@@ -1,3 +1,18 @@
+.offer-box:before {
+  content: "";
+  position: absolute;
+  width: 132px;
+  height: 55px;
+  top: 8%;
+  right: 10%;
+  opacity: .1;
+  background: url(accepted.png) 0 0 no-repeat;
+  -webkit-transform: rotate(9deg);
+  -moz-transform: rotate(9deg);
+  -ms-transform: rotate(9deg);
+  -o-transform: rotate(9deg);
+  transform: rotate(9deg);
+}
 .offer-box {
 	border: 1px solid rgba(0, 0, 0, 0.18);
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);

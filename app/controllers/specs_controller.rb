@@ -12,7 +12,11 @@ class SpecsController < ApplicationController
   end
 
   def show
-    @offer = Offer.find(params[:selected_offer]) if params[:selected_offer]
+    if params[:selected_offer]
+      @offer = Offer.find(params[:selected_offer]) if params[:selected_offer]
+    elsif @spec.accepted?
+      @offer = @spec.offers.detect{ |o| o.accepted? }
+    end
   end
 
   def new
