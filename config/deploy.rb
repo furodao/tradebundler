@@ -18,7 +18,7 @@ set :linked_files, %w{config/database.yml }
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :default_run_options, { pty: true }
-set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa" }
+set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa.pub" }
 
 set :log_level, :debug
 
