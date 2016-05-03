@@ -20,6 +20,7 @@ require 'capistrano/deploy'
 # require 'capistrano/bundler'
 #
 require 'capistrano/rvm'
+load 'deploy/assets'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.0'
 

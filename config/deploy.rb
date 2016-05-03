@@ -22,6 +22,10 @@ set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa" }
 
 set :log_level, :debug
 
+require "bundler/capistrano"
+require "rvm/capistrano"
+before "deploy:assets:precompile", "bundle:install"
+
 namespace :deploy do
 
   desc 'Restart application'
