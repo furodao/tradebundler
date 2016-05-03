@@ -1,4 +1,4 @@
-lock '3.2.1'
+lock '3.5.0'
 
 set :application, 'salesapp'
 
@@ -11,7 +11,7 @@ set :deploy_to, '/home/deploy/salesapp'
 set :rails_env, "production"
 set :ssh_options, {forward_agent: true}
 
-set :pty, true
+set :pty, false
 set :keep_releases, 5
 
 set :linked_files, %w{config/database.yml }
