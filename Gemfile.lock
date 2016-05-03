@@ -1,67 +1,48 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 7354bea4790aabc461a415ac455db097771c86e9
+  revision: 17ae595237339ea9372aa4b9144387c5041b32f0
   specs:
     carrierwave (0.11.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
 
-GIT
-  remote: https://github.com/lynndylanhurley/devise_token_auth
-  revision: 10863b31270b31cec72a07e1a195aa21686ede2b
-  specs:
-    devise_token_auth (0.1.37)
-      devise (> 3.5.2, < 4.1)
-      rails (< 6)
-
-GIT
-  remote: https://github.com/plataformatec/devise
-  revision: 90acc6fc23b0bd000f86ba563075ce59393775b9
-  specs:
-    devise (4.0.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.1)
-      responders
-      warden (~> 1.2.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (5.0.0.beta3)
-      actionpack (= 5.0.0.beta3)
+    actioncable (5.0.0.beta4)
+      actionpack (= 5.0.0.beta4)
       nio4r (~> 1.2)
       websocket-driver (~> 0.6.1)
-    actionmailer (5.0.0.beta3)
-      actionpack (= 5.0.0.beta3)
-      actionview (= 5.0.0.beta3)
-      activejob (= 5.0.0.beta3)
+    actionmailer (5.0.0.beta4)
+      actionpack (= 5.0.0.beta4)
+      actionview (= 5.0.0.beta4)
+      activejob (= 5.0.0.beta4)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 1.0, >= 1.0.5)
-    actionpack (5.0.0.beta3)
-      actionview (= 5.0.0.beta3)
-      activesupport (= 5.0.0.beta3)
+    actionpack (5.0.0.beta4)
+      actionview (= 5.0.0.beta4)
+      activesupport (= 5.0.0.beta4)
       rack (~> 2.x)
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.0.0.beta3)
-      activesupport (= 5.0.0.beta3)
+    actionview (5.0.0.beta4)
+      activesupport (= 5.0.0.beta4)
       builder (~> 3.1)
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    activejob (5.0.0.beta3)
-      activesupport (= 5.0.0.beta3)
+    activejob (5.0.0.beta4)
+      activesupport (= 5.0.0.beta4)
       globalid (>= 0.3.6)
-    activemodel (5.0.0.beta3)
-      activesupport (= 5.0.0.beta3)
-    activerecord (5.0.0.beta3)
-      activemodel (= 5.0.0.beta3)
-      activesupport (= 5.0.0.beta3)
+    activemodel (5.0.0.beta4)
+      activesupport (= 5.0.0.beta4)
+    activerecord (5.0.0.beta4)
+      activemodel (= 5.0.0.beta4)
+      activesupport (= 5.0.0.beta4)
       arel (~> 7.0)
-    activesupport (5.0.0.beta3)
+    activesupport (5.0.0.beta4)
       concurrent-ruby (~> 1.0)
       i18n (~> 0.7)
       minitest (~> 5.1)
@@ -71,12 +52,12 @@ GEM
     arel (7.0.0)
     autoprefixer-rails (6.3.6)
       execjs
-    aws-sdk (2.2.36)
-      aws-sdk-resources (= 2.2.36)
-    aws-sdk-core (2.2.36)
+    aws-sdk (2.3.0)
+      aws-sdk-resources (= 2.3.0)
+    aws-sdk-core (2.3.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.2.36)
-      aws-sdk-core (= 2.2.36)
+    aws-sdk-resources (2.3.0)
+      aws-sdk-core (= 2.3.0)
     bcrypt (3.1.11)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
@@ -102,8 +83,17 @@ GEM
       aws-sdk (~> 2.0)
       carrierwave (~> 0.7)
     coderay (1.1.1)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
+    devise (4.0.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
+    devise_token_auth (0.1.37)
+      devise (> 3.5.2, < 4.1)
+      rails (< 6)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
@@ -137,8 +127,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     json_pure (1.8.3)
-    libv8 (3.16.14.13)
-    listen (3.0.6)
+    libv8 (3.16.14.15)
+    listen (3.0.7)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
     loofah (2.0.3)
@@ -170,17 +160,17 @@ GEM
       json
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (5.0.0.beta3)
-      actioncable (= 5.0.0.beta3)
-      actionmailer (= 5.0.0.beta3)
-      actionpack (= 5.0.0.beta3)
-      actionview (= 5.0.0.beta3)
-      activejob (= 5.0.0.beta3)
-      activemodel (= 5.0.0.beta3)
-      activerecord (= 5.0.0.beta3)
-      activesupport (= 5.0.0.beta3)
+    rails (5.0.0.beta4)
+      actioncable (= 5.0.0.beta4)
+      actionmailer (= 5.0.0.beta4)
+      actionpack (= 5.0.0.beta4)
+      actionview (= 5.0.0.beta4)
+      activejob (= 5.0.0.beta4)
+      activemodel (= 5.0.0.beta4)
+      activerecord (= 5.0.0.beta4)
+      activesupport (= 5.0.0.beta4)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 5.0.0.beta3)
+      railties (= 5.0.0.beta4)
       sprockets-rails (>= 2.0.0)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -190,9 +180,9 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    railties (5.0.0.beta3)
-      actionpack (= 5.0.0.beta3)
-      activesupport (= 5.0.0.beta3)
+    railties (5.0.0.beta4)
+      actionpack (= 5.0.0.beta4)
+      activesupport (= 5.0.0.beta4)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
@@ -204,7 +194,7 @@ GEM
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
     ref (2.0.0)
-    responders (2.1.2)
+    responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     ruby_parser (3.8.1)
       sexp_processor (~> 4.1)
@@ -265,8 +255,8 @@ DEPENDENCIES
   capistrano-rvm
   carrierwave!
   carrierwave-aws
-  devise!
-  devise_token_auth!
+  devise
+  devise_token_auth
   dotenv-rails
   font-awesome-rails
   haml-rails
