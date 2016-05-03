@@ -32,6 +32,8 @@ gem 'sidekiq'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'capistrano-dotenv-tasks'
+
 group :development do
   gem 'pry'
   gem 'listen', '~> 3.0.5'
