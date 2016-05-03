@@ -6,7 +6,7 @@ class CreateContacts < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-  end
 
-  add_index :contacts, [ :seller_id, :buyer_id  ], unique: true
+    add_index :contacts, [ :seller_id, :buyer_id  ], unique: true
+  end
 end
