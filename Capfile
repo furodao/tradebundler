@@ -1,8 +1,9 @@
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 
-require 'dotenv'
+#require 'dotenv'
 Dotenv.load
+
 
 # Includes default deployment tasks
 require 'capistrano/deploy'
