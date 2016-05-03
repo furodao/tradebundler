@@ -32,7 +32,6 @@ gem 'sidekiq'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'capistrano-dotenv-tasks'
 
 group :development do
   gem 'pry'
@@ -43,6 +42,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
+  gem 'capistrano-dotenv-tasks'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
