@@ -19,7 +19,7 @@ gem 'turbolinks', '~> 5.x'
 gem 'haml-rails'
 gem "font-awesome-rails"
 
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv-rails'
 gem 'dotenv-deployment', require: 'dotenv/deployment'
 
 gem 'mini_magick'
