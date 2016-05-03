@@ -2,7 +2,7 @@ lock '3.5.0'
 
 set :application, 'salesapp'
 
-set :repo_url, 'git@github.com:eric-khoury/salesapp.git'
+set :repo_url, 'https://eric-khoury:gK41K49o80e89@github.com/eric-khoury/salesapp.git'
 
 set :branch, "master"
 set :scm, :git
