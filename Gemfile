@@ -20,6 +20,7 @@ gem 'haml-rails'
 gem "font-awesome-rails"
 
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv-deployment', require: 'dotenv/deployment'
 
 gem 'mini_magick'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
