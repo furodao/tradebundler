@@ -79,3 +79,5 @@ test:
 production:
   <<: *default
   database: salesapp_prod
+  user: deploy
+  password: K41K49o80e89
