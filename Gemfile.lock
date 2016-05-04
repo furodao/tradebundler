@@ -72,8 +72,6 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-dotenv-tasks (0.1.3)
-      capistrano (~> 3.0)
     capistrano-harrow (0.4.0)
     capistrano-rails (1.1.6)
       capistrano (~> 3.1)
@@ -254,7 +252,6 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   capistrano
   capistrano-bundler
-  capistrano-dotenv-tasks
   capistrano-rails
   capistrano-rvm
   carrierwave!
