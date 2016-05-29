@@ -7,6 +7,15 @@ GIT
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
 
+GIT
+  remote: git://github.com/lynndylanhurley/devise_token_auth.git
+  revision: 1d6dbdc2e5ba2de00264362a8a876dc98585bd0c
+  branch: master
+  specs:
+    devise_token_auth (0.1.37)
+      devise (> 3.5.2, < 4.1.1)
+      rails (< 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -91,9 +100,6 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    devise_token_auth (0.1.37)
-      devise (> 3.5.2, < 4.1)
-      rails (< 6)
     dotenv (2.1.1)
     dotenv-deployment (0.0.2)
     dotenv-rails (2.1.1)
@@ -256,7 +262,7 @@ DEPENDENCIES
   carrierwave!
   carrierwave-aws
   devise
-  devise_token_auth
+  devise_token_auth!
   dotenv-deployment
   dotenv-rails
   font-awesome-rails
