@@ -1,0 +1,6 @@
+/* line 4, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/lists.scss */
+ul.dashboard-stats-list li a:hover {
+  background: transparent;
+  text-decoration: none;
+  color: #000;
+}

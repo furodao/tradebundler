@@ -1,0 +1,211 @@
+/* line 1, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.navbar.transparent {
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+}
+/* line 5, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.navbar.transparent a, .navbar.transparent a:link, .navbar.transparent a:visited {
+  color: #fff;
+}
+/* line 7, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.navbar.transparent a:hover, .navbar.transparent a:link:hover, .navbar.transparent a:visited:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+/* line 11, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.navbar.transparent a.navbar-brand, .navbar.transparent a:link.navbar-brand, .navbar.transparent a:visited.navbar-brand {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.18);
+  opacity: .7;
+}
+/* line 17, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.navbar.transparent a.navbar-brand:hover, .navbar.transparent a:link.navbar-brand:hover, .navbar.transparent a:visited.navbar-brand:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+/* line 25, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+#landing-wrapper {
+  color: white;
+  padding-top: 100px;
+  width: 80%;
+  margin: 0 auto;
+}
+/* line 30, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+#landing-wrapper .button-wrapper {
+  margin: 0 auto;
+  width: 50%;
+}
+/* line 34, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+#landing-wrapper .brand {
+  margin: 10 auto;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/*****************  STARTBOOTSTRAP-LANDING-PAGE  ********************/
+/* line 45, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.lead {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* line 50, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.intro-header {
+  padding-top: 50px;
+  /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  padding-bottom: 50px;
+  text-align: center;
+  color: #f8f8f8;
+  background: url(../img/intro-bg.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+/* line 59, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.intro-message {
+  position: relative;
+  padding-top: 10%;
+  padding-bottom: 20%;
+}
+
+/* line 65, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.intro-message > h1 {
+  margin: 0;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-size: 5em;
+}
+
+/* line 71, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.intro-divider {
+  width: 400px;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* line 77, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.intro-message > h3 {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 767px) {
+  /* line 82, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  .intro-message {
+    padding-bottom: 15%;
+  }
+
+  /* line 86, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  .intro-message > h1 {
+    font-size: 3em;
+  }
+
+  /* line 90, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  ul.intro-social-buttons > li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  /* line 96, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  ul.intro-social-buttons > li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* line 100, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  .intro-divider {
+    width: 100%;
+  }
+}
+/* line 105, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.network-name {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/* line 112, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.content-section-a {
+  padding: 50px 0;
+  background-color: #f8f8f8;
+}
+
+/* line 117, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.content-section-b {
+  padding: 50px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+/* line 123, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.section-heading {
+  margin-bottom: 30px;
+}
+
+/* line 127, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.section-heading-spacer {
+  float: left;
+  width: 200px;
+  border-top: 3px solid #e7e7e7;
+}
+
+/* line 133, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.banner {
+  padding: 100px 0;
+  color: #f8f8f8;
+  background: url(../img/banner-bg.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+/* line 140, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.banner h2 {
+  margin: 0;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-size: 3em;
+}
+
+/* line 146, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.banner ul {
+  margin-bottom: 0;
+}
+
+/* line 150, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+.banner-social-buttons {
+  float: right;
+  margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+  /* line 156, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  ul.banner-social-buttons {
+    float: left;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 163, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  .banner h2 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 3em;
+  }
+
+  /* line 169, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  ul.banner-social-buttons > li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  /* line 175, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+  ul.banner-social-buttons > li:last-child {
+    margin-bottom: 0;
+  }
+}
+/* line 183, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/landing_page.scss */
+p.copyright {
+  margin: 15px 0 0;
+}

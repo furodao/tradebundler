@@ -1,0 +1,59 @@
+/* line 1, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.no-click {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: .5;
+}
+
+/* line 7, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.right {
+  text-align: right;
+}
+
+/* line 11, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.light {
+  opacity: .7;
+}
+
+/* line 13, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.underlined {
+  text-decoration: underline;
+}
+
+/* line 17, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.center {
+  text-align: center;
+}
+
+/* line 21, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.text-success {
+  color: green !important;
+}
+
+/* line 25, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.text-warning {
+  color: orange !important;
+}
+
+/* line 29, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 33, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/utilities.scss */
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}

@@ -1,0 +1,14 @@
+/* line 1, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/registration.scss */
+.register-wrapper {
+  margin-top: 100px;
+}
+/* line 3, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/registration.scss */
+.register-wrapper > h4 {
+  color: #fff;
+  text-align: center;
+}
+/* line 8, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/registration.scss */
+.register-wrapper > .row .panel {
+  opacity: .9;
+  padding: 7%;
+}

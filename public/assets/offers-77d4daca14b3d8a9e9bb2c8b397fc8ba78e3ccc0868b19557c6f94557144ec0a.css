@@ -1,0 +1,55 @@
+/* line 1, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box:before {
+  content: "";
+  position: absolute;
+  width: 132px;
+  height: 55px;
+  top: 8%;
+  right: 10%;
+  opacity: .1;
+  background: url(accepted.png) 0 0 no-repeat;
+  -webkit-transform: rotate(9deg);
+  -moz-transform: rotate(9deg);
+  -ms-transform: rotate(9deg);
+  -o-transform: rotate(9deg);
+  transform: rotate(9deg);
+}
+
+/* line 16, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box {
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+/* line 22, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box .offer-control-btns {
+  margin: 60px 33px;
+}
+/* line 26, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box h5 {
+  margin: 0 33px 0;
+}
+/* line 30, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box fieldset {
+  margin-bottom: 30px;
+}
+/* line 34, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box legend {
+  border: 0;
+  width: inherit;
+  padding: 0 10px;
+}
+/* line 40, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box a.docs {
+  display: block;
+  margin-bottom: 10px;
+  opacity: .8;
+}
+/* line 45, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/offers.scss */
+.offer-box a.docs:hover {
+  color: #000;
+  text-decoration: none;
+  background: transparent;
+  opacity: 1;
+}

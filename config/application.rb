@@ -11,5 +11,6 @@ module Salesapp
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
   end
 end

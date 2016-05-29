@@ -1,0 +1,72 @@
+/* line 1, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+html, body, #root {
+  height: 100%;
+}
+
+/* line 5, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+body#landing {
+  background: url("office.jpg") no-repeat;
+  background-size: cover;
+}
+
+/* line 11, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+p,
+a,
+td,
+li,
+dt,
+dd {
+  font-family: 'Martel', serif !important;
+}
+
+/* line 35, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+#root {
+  margin-top: 100px;
+}
+
+/* line 39, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+::selection {
+  color: #fff;
+  background: rgba(46, 173, 239, 0.66);
+  border-radius: 4px;
+}
+
+/* line 44, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+::-moz-selection {
+  color: #fff;
+  background: rgba(46, 173, 239, 0.66);
+  border-radius: 4px;
+}
+
+/* line 50, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+.left-panel {
+  height: 100%;
+  padding: 33px;
+  margin: 34px auto 0;
+  border-top-width: 2px;
+}
+
+/* line 57, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+a.btn-danger:visited, a.btn-warning:visited, a.btn-success:visited {
+  color: #fff !important;
+}
+
+/* line 61, /Users/erickhoury/projects/salesapp/app/assets/stylesheets/base.scss */
+footer#app-footer {
+  height: 200px;
+  width: 100%;
+  margin: 0 auto;
+}
