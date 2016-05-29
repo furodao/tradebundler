@@ -12,5 +12,9 @@ module Salesapp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
+
+    config.action_dispatch.default_headers = {
+        'X-Frame-Options' => 'ALLOWALL'
+    }
   end
 end
