@@ -70,7 +70,7 @@
   "L E Lundbergföretagen",
   "Apoteket",
   "Hexagon",
-  "Cellmark"
+  "Cellmark",
   "Ahlsell AB",
   "Volkswagen",
   "IKEA",
