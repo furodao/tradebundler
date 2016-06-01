@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :authenticate_basic
 
   include ApplicationHelper
 
@@ -21,6 +22,13 @@ class ApplicationController < ActionController::Base
 
   def unauthorized
     redirect_to sign_in_path
+  end
+
+  private
+  def authenticate_basic
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "admin" && password == "tradeadmin"
+    end
   end
 
 end
