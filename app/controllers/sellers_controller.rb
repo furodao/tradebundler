@@ -24,7 +24,10 @@ class SellersController < ApplicationController
     @seller = Seller.new(seller_params)
 
     if @seller.save
-      redirect_to dashboard_path, notice: 'Seller was successfully created.'
+      sign_in @seller
+      respond_to do |format|
+        format.html { render 'dashboard', locals: { seller_id: @seller.id }, notice: "Välkommen till TradeBundler, #{@seller.full_name}." }
+      end
     else
       render :new
     end

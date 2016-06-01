@@ -24,7 +24,10 @@ class BuyersController < ApplicationController
     @buyer = Buyer.new(buyer_params)
 
     if @buyer.save
-      redirect_to dashboard_path, notice: 'Buyer was successfully created.'
+      sign_in @buyer
+      respond_to do |format|
+        format.html { render 'dashboard', locals: { buyer_id: @buyer.id }, notice: "Välkommen till TradeBundler, #{@buyer.full_name}." }
+      end
     else
       render :new
     end
