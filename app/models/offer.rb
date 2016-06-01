@@ -6,6 +6,12 @@ class Offer < ApplicationRecord
 
   before_create :set_status_pending
 
+  # Specs has three possible statuses: accepted, pending, rejected
+  scope :accepted, -> { where(status: 'accepted') }
+  scope :pending, -> { where(status: 'pending') }
+  scope :rejected, -> { where(status: 'rejected') }
+
+
   def set_status_pending
     self.status = :pending
   end
