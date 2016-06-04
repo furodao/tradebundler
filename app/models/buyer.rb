@@ -9,6 +9,8 @@ class Buyer < ApplicationRecord
   has_many :contacts
   has_many :offers, through: :specs
 
+  before_create :set_default_role
+
   def self.authenticate(email, password)
     buyer = Buyer.find_for_authentication(email: email)
     buyer.valid_password?(password) ? buyer : nil
@@ -16,5 +18,10 @@ class Buyer < ApplicationRecord
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  private
+  def set_default_role
+    self.role = self.role.nil? ? 'buyer' : self.role
   end
 end

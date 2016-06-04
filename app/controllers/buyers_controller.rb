@@ -3,7 +3,11 @@ class BuyersController < ApplicationController
   layout :set_layout
 
   def index
-    @buyers = Buyer.all
+    if current_user.role == 'superadmin'
+      @buyers = Buyer.all
+    else
+      redirect_to dashboard_path
+    end
   end
 
   def show

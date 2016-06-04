@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502121407) do
+ActiveRecord::Schema.define(version: 20160604125227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,16 +33,25 @@ ActiveRecord::Schema.define(version: 20160502121407) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "role"
+    t.index ["email"], name: "index_buyers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "buyers", ["email"], name: "index_buyers_on_email", unique: true, using: :btree
-  add_index "buyers", ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true, using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "seller_id"
     t.integer  "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "seller_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seller_id"], name: "index_identities_on_seller_id", using: :btree
   end
 
   create_table "offers", force: :cascade do |t|
@@ -82,10 +91,10 @@ ActiveRecord::Schema.define(version: 20160502121407) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "role"
+    t.index ["email"], name: "index_sellers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "sellers", ["email"], name: "index_sellers_on_email", unique: true, using: :btree
-  add_index "sellers", ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true, using: :btree
 
   create_table "spec_categories", force: :cascade do |t|
     t.string "title"
@@ -101,8 +110,8 @@ ActiveRecord::Schema.define(version: 20160502121407) do
     t.decimal  "budget"
     t.integer  "spec_category_id"
     t.jsonb    "custom_checks",    default: [], null: false
+    t.index ["custom_checks"], name: "index_specs_on_custom_checks", using: :gin
   end
 
-  add_index "specs", ["custom_checks"], name: "index_specs_on_custom_checks", using: :gin
-
+  add_foreign_key "identities", "sellers"
 end

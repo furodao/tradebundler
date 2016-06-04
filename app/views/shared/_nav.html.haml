@@ -9,6 +9,10 @@
     %div#bs-navbar-collapse.collapse.navbar-collapse
       - if user_signed_in?
         %ul.nav.navbar-nav
+          - if current_user.role == 'superadmin'
+            %li.no-click
+              = link_to '#', id: 'superadmin' do
+                ADMIN
           %li{ class: ('active' if ['sellers', 'buyers'].include?(params[:controller]) && params[:action] == 'dashboard') }
             = link_to dashboard_path do
               %i.fa.fa-dashboard

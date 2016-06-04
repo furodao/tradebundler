@@ -3,7 +3,11 @@ class SellersController < ApplicationController
   layout :set_layout
 
   def index
-    @sellers = Seller.all
+    if current_user.role == 'superadmin'
+      @sellers = Seller.all
+    else
+      redirect_to dashboard_path
+    end
   end
 
   def show
