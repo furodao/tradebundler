@@ -7,10 +7,13 @@
           Ny specifikation
 
     .form-group
+      = collection_select(:filter, :category_id, SpecCategory.all, :id, :title, { prompt: 'Alla kategorier' }, class: 'form-control')
+      %br
       .input-group
         .input-group-addon
           %i.fa.fa-search
-        %input{ type: 'search', name: 'filter', placeholder: 'Sök..', class: 'form-control' }
+        %input{ type: 'search', name: 'filter[query]', placeholder: 'Sök..', class: 'form-control' }
+
 
   .col-md-8.right-panel
     - if current_user_type == :seller
