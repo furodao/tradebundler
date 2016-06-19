@@ -3,13 +3,13 @@
     %tr
       %th Org
       %th Rubrik
-      %th Skapad
+      %th Deadline
   %tbody
     - specs.each do |spec|
       %tr{ class: row_class_from_status(current_seller.offer_for(spec).try(:status)), data: { link: "#{spec_path(spec)}" }  }
         %td= spec.buyer.org.title
         %td= spec.title
-        %td= spec.created_at.strftime("%d/%m %Y")
+        %td= spec.deadline.try(:strftime, "%d/%m %Y")
         %td.right.not-clickable
           - if current_seller.offer_for(spec)
             = link_to 'Min offert', offer_path(current_seller.offer_for(spec).id), :class => "btn btn-default btn-xs"
