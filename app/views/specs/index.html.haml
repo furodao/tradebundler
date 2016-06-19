@@ -1,11 +1,5 @@
 .row
   .col-md-3.left-panel.panel.panel-default
-    - if current_user_type == :buyer
-      %div.control-box
-        = link_to new_spec_path, class: 'btn btn-xs btn-default' do
-          %i.fa.fa-pencil
-          Ny specifikation
-
     .form-group
       = collection_select(:filter, :category_id, SpecCategory.all, :id, :title, { prompt: 'Alla kategorier' }, class: 'form-control')
       %br
@@ -16,6 +10,11 @@
 
 
   .col-md-8.right-panel
+    - if current_user_type == :buyer
+      %div.control-box.pull-right
+        = link_to new_spec_path, class: 'btn btn-xs btn-success' do
+          %i.fa.fa-plus
+          Ny specifikation
     - if current_user_type == :seller
       = render partial: 'spec_table_seller', locals: { specs: @specs }
     - else

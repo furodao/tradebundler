@@ -28,8 +28,6 @@
         %ul
           - @spec.custom_checks.each do |attr|
             %li= attr['title']
-        %p
-          Budget: #{ number_with_delimiter(@spec.budget.round, delimiter: ',') } Kr
 
     - if current_user_type == :seller && current_seller.specs.pluck(:id).include?(@spec.id)
       = link_to 'Min offert', offer_path(Offer.where(spec_id: @spec.id).first.id), :class => "btn btn-default btn-xs"
@@ -44,13 +42,11 @@
             %thead
               %tr
                 %th Org
-                %th Budget
                 %th Status
             %tbody
               - @spec.offers.each do |offer|
                 %tr{ data: { link: "#{spec_path(@spec, selected_offer: offer.id)}" }, class: row_class_from_status(offer.status) }
                   %td= offer.org.title
-                  %td= offer.budget.round
                   %td= offer.status_to_s
 
   - if @offer

@@ -14,20 +14,29 @@
         = f.text_area :description, rows: 8, :class => 'form-control'
       .row
         %div#custom_field_wrapper.form-group
+          %span Kravlista
+          = link_to 'Lägg till krav', '#', id: 'add_custom_check', class: 'btn btn-xs btn-default'
           = f.fields_for :custom_checks do |builder|
             = render 'custom_checks', f: builder
-        = link_to 'Lägg till krav', '#', id: 'add_custom_check'
       %br
+      -#
+        .row
+          .col-md-6
+            .form-group
+              = f.label :budget, 'Budget', :class => 'control-label'
+              .input-group
+                .input-group-addon Kr
+                = f.number_field :budget, :class => 'form-control', placeholder: 0
       .row
         .col-md-6
           .form-group
-            = f.label :budget, 'Budget', :class => 'control-label'
-            .input-group
-              .input-group-addon Kr
-              = f.number_field :budget, :class => 'form-control', value: 0
-        .form-group
-          = f.label :contact_date, 'Kontakta tidigast', :class => 'control-label'
-          = f.date_select :contact_date, :class => 'form-control'
+            = f.label :contact_date, 'Kontakta tidigast', :class => 'control-label'
+            = f.date_select :contact_date, :class => 'form-control'
+      .row
+        .col-md-8
+          .form-group
+            = f.label :deadline, 'Deadline', :class => 'control-label'
+            = f.date_select :deadline, :class => 'form-control'
       %br
       %br
       .form-actions
