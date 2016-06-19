@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604125227) do
+ActiveRecord::Schema.define(version: 20160619141533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(version: 20160604125227) do
     t.decimal  "budget"
     t.integer  "spec_category_id"
     t.jsonb    "custom_checks",    default: [], null: false
+    t.datetime "deadline"
+    t.date     "delivery_date"
     t.index ["custom_checks"], name: "index_specs_on_custom_checks", using: :gin
   end
 
