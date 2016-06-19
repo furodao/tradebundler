@@ -26,6 +26,10 @@
               = link_to offers_path do
                 %i.fa.fa-files-o
                 Mina offerter
+          %li{ class: ('active' if params[:controller] == 'contracts' ) }
+            = link_to '#', class: 'no-click' do
+              %i.fa.fa-briefcase
+              Mina avtal
           %li{ class: ('active' if params[:controller] == 'contacts' ) }
             = link_to contacts_path do
               %i.fa.fa-phone
