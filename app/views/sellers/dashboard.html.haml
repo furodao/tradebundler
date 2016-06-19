@@ -19,6 +19,3 @@
         %span.badge= current_seller.contacts.count
         Kontakter
 
-
-.row
-  = pie_chart({"Godkända offerter" => current_seller.offers.accepted.count,"Väntande offerter" => current_seller.offers.pending.count, "Avböjda offerter" => current_seller.offers.rejected.count})

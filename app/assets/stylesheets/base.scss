@@ -58,8 +58,9 @@ a.btn-danger:visited,a.btn-warning:visited,a.btn-success:visited {
   color: #fff !important;
 }
 
-footer#app-footer {
-  height: 200px;
+footer {
   width: 100%;
+  padding-bottom: 50px;
   margin: 0 auto;
+  text-align: center;
 }
