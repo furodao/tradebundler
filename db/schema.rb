@@ -43,15 +43,7 @@ ActiveRecord::Schema.define(version: 20160619141533) do
     t.integer  "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "identities", force: :cascade do |t|
-    t.integer  "seller_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["seller_id"], name: "index_identities_on_seller_id", using: :btree
+    t.index ["seller_id", "buyer_id"], name: "index_contacts_on_seller_id_and_buyer_id", unique: true, using: :btree
   end
 
   create_table "offers", force: :cascade do |t|
@@ -104,16 +96,15 @@ ActiveRecord::Schema.define(version: 20160619141533) do
     t.integer  "buyer_id"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.date     "contact_date"
     t.decimal  "budget"
     t.integer  "spec_category_id"
-    t.jsonb    "custom_checks",    default: [], null: false
+    t.jsonb    "custom_checks",    default: "[]", null: false
     t.datetime "deadline"
     t.date     "delivery_date"
     t.index ["custom_checks"], name: "index_specs_on_custom_checks", using: :gin
   end
 
-  add_foreign_key "identities", "sellers"
 end
