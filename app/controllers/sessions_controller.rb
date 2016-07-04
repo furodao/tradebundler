@@ -6,7 +6,9 @@ class SessionsController < ApplicationController
   def create
     user = Buyer.find_by_email(params[:seller][:email]) || Seller.find_by_email(params[:seller][:email])
 
-    if user.class.authenticate(params[:seller][:email], params[:seller][:password])
+    if user.nil?
+      render :new
+    elsif user.class.authenticate(params[:seller][:email], params[:seller][:password])
       sign_in(user)
       redirect_to dashboard_path
     else
