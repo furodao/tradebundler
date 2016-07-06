@@ -29,6 +29,10 @@
           - @spec.custom_checks.each do |attr|
             %li= attr['title']
 
+        %p
+          Offerera senast: 
+          = @spec.deadline.strftime("%d/%m %Y")
+
     - if current_user_type == :seller && current_seller.specs.pluck(:id).include?(@spec.id)
       = link_to 'Min offert', offer_path(Offer.where(spec_id: @spec.id).first.id), :class => "btn btn-default btn-xs"
     - elsif current_user_type == :seller
