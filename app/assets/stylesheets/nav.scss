@@ -1,9 +1,14 @@
-/*
 .navbar-default {
-  background-color: #009FFF;
+  background-color: #9176cd;
+  border-color: #9f87de;
 
   .navbar-brand {
-    color: #fff;
+    color: #fc0;
+    opacity: 0.9;
+    &:hover {
+      color: #fc0;
+      opacity: 1;
+    }
   }
 
   .navbar-nav > li > a {
@@ -15,4 +20,3 @@
     }
   }
 }
-*/
