@@ -1,5 +1,7 @@
 .page-header
-  .light
-    %h4= @spec.title
-    %h5= @spec.description
+  .row
+    .light
+      .col-md-6
+        %h4= @spec.title
+        %h5= @spec.description
 = render :partial => "form"
