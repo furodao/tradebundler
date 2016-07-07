@@ -4,6 +4,10 @@ class Spec < ApplicationRecord
   has_many :offers
   belongs_to :spec_category
 
+	def self.by_category(id)
+		id.blank? ? self.all : self.where(spec_category_id: id)
+	end
+
   def status
     accepted? ? 'accepted' : nil
   end

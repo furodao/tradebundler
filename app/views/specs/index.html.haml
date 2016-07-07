@@ -1,7 +1,7 @@
 .row
   .col-md-3.left-panel.panel.panel-default
     .form-group
-      = collection_select(:filter, :category_id, SpecCategory.all, :id, :title, { prompt: 'Alla kategorier' }, class: 'form-control')
+      = collection_select(:filter, :category_id, SpecCategory.all, :id, :title, { prompt: 'Alla kategorier', selected: params[:spec_category_id], include_blank: true }, class: 'form-control filter', name: 'spec_category_id', selected: 2)
       %br
       .input-group
         .input-group-addon
@@ -21,3 +21,4 @@
       = render partial: 'spec_table_buyer', locals: { specs: @specs }
 
 = render partial: 'shared/table_js'
+= render partial: 'shared/filter_controls'
