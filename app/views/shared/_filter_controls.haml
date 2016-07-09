@@ -1,5 +1,12 @@
 :javascript
   $(function(){
+    $('input.filter').on('click', function(e){
+      //console.log('Name: ' + e.target.name + '| Value: ' + e.target.value);
+
+      newUrl = updateURLParam(window.location.href, e.target.name, e.target.value);
+      window.location.href = newUrl;
+    });
+
     $('select.filter').on('change', function(e){
       //console.log('Name: ' + e.target.name + '| Value: ' + e.target.value);
 

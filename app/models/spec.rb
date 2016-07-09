@@ -8,6 +8,16 @@ class Spec < ApplicationRecord
 		id.blank? ? self.all : self.where(spec_category_id: id)
 	end
 
+	def self.by_status(status)
+		if status.blank? || status.nil?
+			self.all
+		elsif status == 'accepted'
+			self.select { |s| s.accepted? }
+		elsif status == 'pending'
+			self.select { |s| s.pending? }
+		end
+	end
+
   def status
     accepted? ? 'accepted' : nil
   end

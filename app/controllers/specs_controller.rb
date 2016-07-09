@@ -7,7 +7,7 @@ class SpecsController < ApplicationController
     if current_user_type == :buyer
       @specs = current_buyer.org.specs
     else
-      @specs = Spec.by_category(current_category)
+      @specs = Spec.by_category(filter_category).by_status(filter_status)
     end
   end
 
@@ -67,7 +67,11 @@ class SpecsController < ApplicationController
       params.require(:spec).permit(:buyer_id, :title, :description, :contact_date, :budget, :spec_category_id, :deadline, :delivery_date, custom_checks: [])
     end
 
-		def current_category
+		def filter_category
 			params[:spec_category_id]
+		end
+
+		def filter_status
+			params[:spec_status]
 		end
 end
