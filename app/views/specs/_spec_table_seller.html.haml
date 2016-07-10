@@ -6,10 +6,14 @@
       %th Deadline
   %tbody
     - specs.each do |spec|
-      %tr{ class: "#{row_class_from_status(spec.status)} #{'light-extra' if spec.accepted?}", data: { link: "#{spec_path(spec)}" }  }
+      %tr{ class: "#{'light-extra' if spec.accepted?}", data: { link: "#{spec_path(spec)}" }  }
         %td= spec.buyer.org.title
         %td= spec.title
         %td= spec.deadline.try(:strftime, "%d/%m %Y") || '-'
+        - if spec.accepted?
+          %td.text-success
+            %i.fa.fa-check
+            Förhandlad
         %td.right.not-clickable
           - if current_seller.offer_for(spec)
             = link_to 'Min offert', offer_path(current_seller.offer_for(spec).id), :class => "btn btn-default btn-xs"
