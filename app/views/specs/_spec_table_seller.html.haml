@@ -14,8 +14,9 @@
           %td.text-success
             %i.fa.fa-check
             Förhandlad
-        %td.right.not-clickable
-          - if current_seller.offer_for(spec)
-            = link_to 'Min offert', offer_path(current_seller.offer_for(spec).id), :class => "btn btn-default btn-xs"
-          - elsif !spec.accepted?
-            = link_to 'Skapa offert', new_offer_path(spec_id: spec.id), :class => "btn btn-success btn-xs"
+        - else
+          %td.right.not-clickable
+            - if current_seller.offer_for(spec)
+              = link_to 'Min offert', offer_path(current_seller.offer_for(spec).id), :class => "btn btn-default btn-xs"
+            - elsif !spec.accepted?
+              = link_to 'Skapa offert', new_offer_path(spec_id: spec.id), :class => "btn btn-success btn-xs"
