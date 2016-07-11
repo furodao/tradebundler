@@ -11,7 +11,7 @@
         %td= spec.title
         %td= spec.deadline.try(:strftime, "%d/%m %Y") || '-'
         - if spec.accepted?
-          %td.text-success
+          %td.right.text-success
             %i.fa.fa-check
             Förhandlad
         - else
