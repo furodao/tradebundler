@@ -7,7 +7,7 @@ set :repo_url, 'https://eric-khoury:gK41K49o80e89@github.com/eric-khoury/salesap
 set :branch, "master"
 set :scm, :git
 
-set :deploy_to, '/home/deploy/salesapp'
+set :deploy_to, '/home/rails/salesapp'
 set :rails_env, "production"
 set :ssh_options, {forward_agent: true}
 
@@ -42,5 +42,9 @@ namespace :deploy do
       # end
     end
   end
+
+	after "bundle:install" do
+		run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+	end
 
 end
