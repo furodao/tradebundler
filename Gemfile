@@ -48,7 +48,7 @@ group :development do
 end
 
 group :production do
-  #gem 'unicorn'
+  gem 'unicorn'
 	gem "unicorn-rails"
   gem 'rails_12factor'
 end
