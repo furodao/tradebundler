@@ -47,10 +47,6 @@ namespace :deploy do
 
   after :publishing, :restart
 
-	after :restart do
-    run "if [ -f /home/rails/salesapp/shared/tmp/pids/unicorn.pid ] && [ -e /proc/$(cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid) ]; then kill -USR2 `cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid`; else cd /home/rails/salesapp/current && bundle exec unicorn -c /home/rails/salesapp/current/unicorn.rb -E production -D; fi"
-  end
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       #run "cd #{release_path}; RAILS_ENV=production bundle exec unicorn -c unicorn.rb -E production -D"
