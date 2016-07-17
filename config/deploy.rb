@@ -12,7 +12,7 @@ set :rails_env, "production"
 set :ssh_options, {forward_agent: true}
 
 set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
-set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
+set :unicorn_pid, "#{deploy_to}/shared/tmp/pids/unicorn.pid"
 
 set :pty, false
 set :keep_releases, 5
