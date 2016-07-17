@@ -25,6 +25,13 @@ set :log_level, :debug
 namespace :deploy do
 
   desc 'Restart application'
+
+	task :start, :roles => :app, :except => { :no_release => true } do
+    run <<-CMD
+      cd #{current_path} && #{unicorn_bin} -c #{unicorn_config} -E #{rails_env} -D
+    CMD
+	end
+
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
