@@ -11,7 +11,7 @@ set :deploy_to, '/home/rails/salesapp'
 set :rails_env, "production"
 set :ssh_options, {forward_agent: true}
 
-set :unicorn_conf, "#{deploy_to}/current/config/unicorn.rb"
+set :unicorn_conf, "#{deploy_to}/current/unicorn.rb"
 set :unicorn_pid, "#{deploy_to}/shared/tmp/pids/unicorn.pid"
 
 set :pty, false
