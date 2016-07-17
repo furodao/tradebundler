@@ -26,12 +26,6 @@ namespace :deploy do
 
   desc 'Restart application'
 
-	task :start, :roles => :app, :except => { :no_release => true } do
-    run <<-CMD
-      cd /home/rails/salesapp/current && unicorn -c unicorn.rb -E production -D
-    CMD
-	end
-
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
