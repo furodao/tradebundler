@@ -37,18 +37,18 @@ namespace :deploy do
   end
 
 	task :start do
-		run "bundle exec unicorn -c unicorn.rb -E production -D"
+		#run "bundle exec unicorn -c unicorn.rb -E production -D"
 	end
 
 	task :stop do
-		run "if [ -f /home/rails/salesapp/shared/tmp/pids/unicorn.pid ] && [ -e /proc/$(cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid) ]; then kill -QUIT `cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid`; fi"
+		#run "if [ -f /home/rails/salesapp/shared/tmp/pids/unicorn.pid ] && [ -e /proc/$(cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid) ]; then kill -QUIT `cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid`; fi"
 	end
 
   after :publishing, :restart
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-			run "cd /home/rails/salesapp/current && bundle exec unicorn -c unicorn.rb -E production -D"
+			run "cd #{release_path}; RAILS_ENV=production bundle exec unicorn -c unicorn.rb -E production -D"
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
