@@ -28,7 +28,7 @@ namespace :deploy do
 
 	task :start, :roles => :app, :except => { :no_release => true } do
     run <<-CMD
-      cd #{current_path} && #{unicorn_bin} -c #{unicorn_config} -E #{rails_env} -D
+      cd /home/rails/salesapp/current && unicorn -c unicorn.rb -E production -D
     CMD
 	end
 
