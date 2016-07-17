@@ -38,7 +38,7 @@ namespace :deploy do
   end
 
 	task :start do
-		run "bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
+		run "bundle exec unicorn -c unicorn.rb -E production -D"
 	end
 
 	task :stop do
