@@ -26,7 +26,6 @@ set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa" }
 set :log_level, :debug
 
 
-after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
 
   desc 'Restart application'
