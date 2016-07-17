@@ -1,5 +1,6 @@
 # Set the working application directory
 # working_directory "/path/to/your/app"
+require 'rack'
 working_directory "/home/rails/salesapp/current"
 
 # Unicorn PID file location

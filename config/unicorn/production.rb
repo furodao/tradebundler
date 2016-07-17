@@ -1,3 +1,5 @@
+require 'rack'
+
 deploy_to  = "/home/rails/salesapp"
 rails_root = "#{deploy_to}/current"
 pid_file   = "#{deploy_to}/shared/tmp/pids/unicorn.pid"
