@@ -25,6 +25,8 @@ set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_rsa" }
 
 set :log_level, :debug
 
+
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
 
   desc 'Restart application'
@@ -47,8 +49,9 @@ namespace :deploy do
   after :publishing, :restart
 
   after :restart, :clear_cache do
+    invoke 'unicorn:restart'
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-			run "cd #{release_path}; RAILS_ENV=production bundle exec unicorn -c unicorn.rb -E production -D"
+      #run "cd #{release_path}; RAILS_ENV=production bundle exec unicorn -c unicorn.rb -E production -D"
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
