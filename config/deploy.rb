@@ -32,7 +32,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       execute :touch, release_path.join('tmp/restart.txt')
-			run "if [ -f /home/rails/salesapp/shared/tmp/pids/unicorn.pid ] && [ -e /proc/$(cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid) ]; then kill -USR2 `cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid`; else cd /home/rails/salesapp/current && bundle exec unicorn -c /home/rails/salesapp/current/unicorn.rb -E production -D; fi"
+			#run "if [ -f /home/rails/salesapp/shared/tmp/pids/unicorn.pid ] && [ -e /proc/$(cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid) ]; then kill -USR2 `cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid`; else cd /home/rails/salesapp/current && bundle exec unicorn -c /home/rails/salesapp/current/unicorn.rb -E production -D; fi"
     end
   end
 
