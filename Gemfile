@@ -45,11 +45,12 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
+	gem 'rvm1-capistrano3', require: false
+	gem 'capistrano3-unicorn', require: false
 end
 
 group :production do
   gem 'unicorn'
-	gem "unicorn-rails"
   gem 'rails_12factor'
 end
 
