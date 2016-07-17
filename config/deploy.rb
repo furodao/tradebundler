@@ -32,7 +32,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-			run "if [ -f /home/rails/salesapp/shared/tmp/pids/unicorn.pid ] && [ -e /proc/$(cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid) ]; then kill -USR2 `cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid`; else cd /home/rails/salesapp/current && bundle exec unicorn -c /home/rails/salesapp/current/config/unicorn.rb -E production -D; fi"
+			#run "if [ -f /home/rails/salesapp/shared/tmp/pids/unicorn.pid ] && [ -e /proc/$(cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid) ]; then kill -USR2 `cat /home/rails/salesapp/shared/tmp/pids/unicorn.pid`; else cd /home/rails/salesapp/current && bundle exec unicorn -c /home/rails/salesapp/current/config/unicorn.rb -E production -D; fi"
       execute :touch, release_path.join('tmp/restart.txt')
     end
   end
