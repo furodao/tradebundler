@@ -4,7 +4,7 @@ working_directory "/home/rails/salesapp/current"
 
 # Unicorn PID file location
 # pid "/path/to/pids/unicorn.pid"
-pid "/home/rails/salesapp/current/pids/unicorn.pid"
+pid "/home/rails/salesapp/current/tmp/pids/unicorn.pid"
 
 # Path to logs
 # stderr_path "/path/to/log/unicorn.log"
