@@ -6,7 +6,13 @@
       %th Offerter
   %tbody
     - specs.each do |spec|
-      %tr{ class: row_class_from_status(spec.status), data: { link: "#{spec_path(spec)}" } }
+      %tr{ class: "#{'light-extra' if spec.accepted?}", data: { link: "#{spec_path(spec)}" } }
         %td= spec.title
         %td= spec.deadline.try(:strftime, "%d/%m %Y") || '-'
         %td= spec.offers.count
+        - if spec.accepted?
+          %td.right.text-success
+            %i.fa.fa-check
+            Förhandlad
+        - else
+          %td
