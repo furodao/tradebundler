@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619141533) do
+ActiveRecord::Schema.define(version: 20160718162834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +43,13 @@ ActiveRecord::Schema.define(version: 20160619141533) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seller_id", "buyer_id"], name: "index_contacts_on_seller_id_and_buyer_id", unique: true, using: :btree
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer "seller_org_id"
+    t.integer "buyer_org_id"
+    t.integer "offer_id"
+    t.integer "spec_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -105,6 +111,23 @@ ActiveRecord::Schema.define(version: 20160619141533) do
     t.datetime "deadline"
     t.date     "delivery_date"
     t.index ["custom_checks"], name: "index_specs_on_custom_checks", using: :gin
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end

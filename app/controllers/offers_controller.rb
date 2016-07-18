@@ -54,6 +54,13 @@ class OffersController < ApplicationController
     if @offer
       Contact.create(seller_id: @offer.seller_id, buyer_id: @offer.spec.buyer_id)
       @offer.update_attribute :status, :accepted
+			Contract.create(
+				seller_org_id: @offer.seller.org_id,
+				buyer_org_id: @offer.spec.buyer.org_id,
+				offer_id: @offer.id,
+				spec_id: @offer.spec_id
+			)
+
       SellerMailer.offer_accepted(@offer).deliver_later
       redirect_to @offer, notice: 'Offerten accepterad.'
     else

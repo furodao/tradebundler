@@ -1,3 +1,3 @@
-class SpecCategory < ActiveRecord::Base
+class SpecCategory < ApplicationRecord
   has_many :specs
 end

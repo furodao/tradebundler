@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   resources :orgs, only: [:new, :update, :create, :destroy, :show]
   resources :contacts
+	resources :contracts, only: [:index]
 
   get '/dashboard', to: 'home#dashboard', as: :dashboard
 
