@@ -5,7 +5,7 @@ class SpecsController < ApplicationController
 
   def index
     if current_user_type == :buyer
-      @specs = current_buyer.org.specs
+      @specs = current_buyer.org.specs.order(:deadline)
     else
       @specs = Spec.by_category(filter_category).by_status(filter_status)
     end
