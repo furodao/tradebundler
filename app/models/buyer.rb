@@ -8,6 +8,7 @@ class Buyer < ApplicationRecord
   has_many :specs
   has_many :contacts
   has_many :offers, through: :specs
+	has_many :contracts
 
   before_create :set_default_role
 
