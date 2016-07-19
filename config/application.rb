@@ -16,5 +16,7 @@ module Salesapp
     config.action_dispatch.default_headers = {
         'X-Frame-Options' => 'ALLOWALL'
     }
+
+		config.i18n.default_locale = 'sv'
   end
 end

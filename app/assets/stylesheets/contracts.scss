@@ -1,0 +1,16 @@
+.contract-list-item {
+	background: rgba(204, 204, 204, 0.32);
+	padding: 1px;
+	margin-bottom: 10px;
+
+	a {
+		&:hover {
+			color: #000;
+			background: transparent;
+		}
+	}
+
+	strong {
+		font-family: initial;
+	}
+}

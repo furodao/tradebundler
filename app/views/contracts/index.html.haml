@@ -1,2 +1,13 @@
+
 - @contracts.each do |contract|
-  %p= contract.spec.title
+  .row
+    .col.col-md-6
+      .contract-list-item
+        %p
+          = link_to contract.spec.title, spec_path(contract.spec)
+          %i.fa.fa-chevron-right
+          %span.small.pull-right
+            Löper ut:
+            %strong
+              = 1.year.from_now.strftime("%d/%m -%y")
+        -# = contract.offer.expire_at < Date.today
