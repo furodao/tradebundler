@@ -6,6 +6,11 @@
         %p
           = link_to contract.spec.title, spec_path(contract.spec)
           %i.fa.fa-chevron-right
+          %br
+          %span.small= contract.offer.org.title
+          →
+          %span.small= contract.spec.org.title
+
           %span.small.pull-right
             Löper ut:
             %strong
