@@ -1,13 +1,11 @@
-.page-header
-  Säljare
-
-%p
-  = @seller.first_name
-%p
-  = @seller.last_name
-%p
-  = @seller.phone
-%p
-  = @seller.email
-%p
-  = @seller.org.title
+.row
+  .col-md-3
+    .thumbnail.profile
+      = image_tag 'no-profile.png'
+      .caption.center
+        %h3= @seller.full_name
+        %h5= @seller.org.title
+        %p
+          =@seller.phone
+          %br
+          =@seller.email

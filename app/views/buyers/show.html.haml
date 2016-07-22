@@ -1,13 +1,11 @@
-.page-header
-  Inköpare
-
-%p
-  = @buyer.first_name
-%p
-  = @buyer.last_name
-%p
-  = @buyer.phone
-%p
-  = @buyer.email
-%p
-  = @buyer.org.title
+.row
+  .col-md-3
+    .thumbnail.profile
+      = image_tag 'no-profile.png'
+      .caption.center
+        %h3= @buyer.full_name
+        %h5= @buyer.org.title
+        %p
+          =@buyer.phone
+          %br
+          =@buyer.email
