@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :contacts
 	resources :contracts, only: [:index]
 
+	post :book_new_meeting, to: 'meetings#book_new_meeting', as: :book_new_meeting
+
   get '/dashboard', to: 'home#dashboard', as: :dashboard
 
   get '/sign_in', to: 'sessions#new', as: :sign_in

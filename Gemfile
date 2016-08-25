@@ -30,11 +30,16 @@ gem 'redis', '~>3.2'
 gem 'redis-namespace'
 gem 'sidekiq'
 
-gem "chartkick"
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
 
 group :development do
   gem 'pry'
@@ -45,8 +50,8 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
-	gem 'rvm1-capistrano3', require: false
-	gem 'capistrano3-unicorn', require: false
+  gem 'rvm1-capistrano3', require: false
+  gem 'capistrano3-unicorn', require: false
 end
 
 group :production do

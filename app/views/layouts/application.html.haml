@@ -5,6 +5,7 @@
     = csrf_meta_tags
     = action_cable_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    %meta{:content => "width=device-width; height=device-height; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi", :name => "viewport"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Martel:400,600", :rel => "stylesheet", :type => "text/css"}/
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag "//www.google.com/jsapi"

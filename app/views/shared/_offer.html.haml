@@ -1,4 +1,4 @@
-.col-md-6.offer-box
+.col-md-4.offer-box{class: ('accepted' if @offer.accepted?)}
   %p.light.small.pull-right
     OFFERT
   %p.light.small
@@ -45,6 +45,25 @@
         Avbryt
 
     - elsif @offer.status == 'pending'
+      - if (@offer.meetings.where(status: 'pending').none?)
+        #book-meeting-container.form-group
+          #datetimepicker2.input-group.date
+            %input.form-control{:type => "text"}/
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar
+
+
+          = link_to '#', class: 'btn btn-xs btn-info meeting-btn' do
+            %i.fa.fa-calendar
+            Boka möte
+      - else
+        #meeting-info-prefilled
+          %span.text-info
+            %i.fa.fa-info-circle
+              Förfrågan om möte är skickad!
+      #meeting-info
+      %br
+      .space
       = link_to offer_accept_path(@offer), class: 'btn btn-xs btn-success', method: :post do
         %i.fa.fa-check
         Acceptera
@@ -55,3 +74,35 @@
       = link_to contact_path(current_user_type == :seller ? @offer.spec.buyer_id : @offer.seller_id), class: 'btn btn-xs btn-default' do
         %i.fa.fa-comments
         Kontakta
+
+:javascript
+  $(function () {
+    $('#datetimepicker2').datetimepicker({
+      locale: 'sv'
+    });
+
+    $('a.meeting-btn').on('click', function(e){
+      e.preventDefault();
+      var time = $('#datetimepicker2 input').val();
+      if(time == null || time == "") {
+        alert('Inget datum har valts, var god välj datum för att boka möte.');
+        console.log(time);
+      }else {
+        console.log(time);
+
+        $("#book-meeting-container").hide();
+        var params = {
+          meeting: {
+            seller_id: #{@offer.seller_id},
+            buyer_id: #{@offer.spec.buyer_id},
+            offer_id: #{@offer.id},
+            place: 'Some place',
+            time: time
+          }
+        };
+        $.post( "#{book_new_meeting_path}", params, function( data ) {
+          $("#meeting-info").html("<span class='text-info'><i class='fa fa-info-circle'></i> Förfrågan om möte är skickad!</span>");
+        });
+      }
+    })
+  });

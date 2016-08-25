@@ -9,6 +9,7 @@ class Seller < ApplicationRecord
   has_many :specs, through: :offers
   has_many :contacts
 	has_many :contracts
+	has_many :meetings
 
   before_create :set_default_role
 

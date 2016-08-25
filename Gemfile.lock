@@ -71,6 +71,8 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     capistrano (3.5.0)
       airbrussh (>= 1.0.0)
@@ -93,7 +95,6 @@ GEM
     carrierwave-aws (1.0.1)
       aws-sdk (~> 2.0)
       carrierwave (~> 0.7)
-    chartkick (2.0.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
@@ -103,6 +104,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     dotenv (2.1.1)
     dotenv-deployment (0.0.2)
     dotenv-rails (2.1.1)
@@ -150,6 +152,8 @@ GEM
     mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
@@ -207,6 +211,23 @@ GEM
     ref (2.0.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rspec-core (3.5.2)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-rails (3.5.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     ruby_parser (3.8.2)
       sexp_processor (~> 4.1)
     rvm1-capistrano3 (1.4.0)
@@ -266,6 +287,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   capistrano
   capistrano-bundler
   capistrano-rails
@@ -273,7 +295,6 @@ DEPENDENCIES
   capistrano3-unicorn
   carrierwave!
   carrierwave-aws
-  chartkick
   devise
   devise_token_auth!
   dotenv-deployment
@@ -283,6 +304,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mini_magick
+  momentjs-rails (>= 2.9.0)
   normalize-rails
   pg (~> 0.18)
   pry
@@ -290,6 +312,7 @@ DEPENDENCIES
   rails_12factor
   redis (~> 3.2)
   redis-namespace
+  rspec-rails (~> 3.5)
   rvm1-capistrano3
   sass-rails (~> 5.0)
   sidekiq
