@@ -1,7 +1,7 @@
 .row
   .col-md-3.left-panel.panel.panel-default
     .form-group
-      = select_tag "spec_status", options_for_select([ ["Förhandlad & ej förhandlad", ''], ["Förhandlad", 'accepted'], ["Ej förhandlad", 'pending'] ], params[:spec_status]), class: 'form-control filter'
+      = select_tag "spec_status", options_for_select([ ["Ej förhandlad", 'pending'], ["Förhandlad", 'accepted'], ["Förhandlad & ej förhandlad", ''] ], params[:spec_status]), class: 'form-control filter'
     .form-group
       = collection_select(:filter, :category_id, SpecCategory.all, :id, :title, { prompt: 'Alla kategorier', selected: params[:spec_category_id], include_blank: true }, class: 'form-control filter', name: 'spec_category_id', selected: 2)
       %br

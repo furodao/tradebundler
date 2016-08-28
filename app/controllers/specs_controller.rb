@@ -72,6 +72,6 @@ class SpecsController < ApplicationController
 		end
 
 		def filter_status
-			params[:spec_status]
+			params[:spec_status] || 'pending'
 		end
 end

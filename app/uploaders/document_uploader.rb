@@ -7,7 +7,9 @@ class DocumentUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+	#
   def store_dir
+		#TODO: Should be path for company, maybe something like model.org.id
     "user-docs/#{model.class.to_s.downcase}/#{model.id}/"
   end
 
