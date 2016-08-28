@@ -25,5 +25,7 @@ Rails.application.routes.draw do
 
   get '/register', to: 'home#register', as: :register
 
+	get '/about', to: 'home#about', as: :about
+
   root to: 'home#index'
 end

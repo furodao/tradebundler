@@ -7,6 +7,9 @@ class HomeController < ApplicationController
     end
   end
 
+	def about
+	end
+
   def dashboard
     if current_user_type == :seller 
       redirect_to seller_dashboard_path(current_seller)

@@ -46,7 +46,7 @@
       - else
         %ul.nav.navbar-nav.navbar-right
           %li{ class: ('active' if params[:controller] == 'info' ) }
-            = link_to '#' do
+            = link_to about_path do
               %i.fa.fa-info
               Om tjänsten
           %li{ class: ('active' if params[:controller] == 'org' ) }
